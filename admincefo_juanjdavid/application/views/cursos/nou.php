@@ -1,32 +1,42 @@
 <div class="content">
 		<div>
-			<h2>Formulari de registre</h2>
+			<h2>Nou curs</h2>
 			<form method="post" autocomplete="off">
 
-				<label>Nom:</label>
+				<label>Nom del curs:</label>
 				<input type="text" name="nom" required="required"/><br/>
-				<label>Primer cognom:</label>
-				<input type="text" name="cognom1" required="required"/><br/>
-				<label>Segon cognom:</label>
-				<input type="text" name="cognom2" required="required"/><br/>
-				<label>Telefon fixe:</label>
-				<input type="text" name="tfixe" required="required" pattern="[0-9]{9}" title="Telefon fixe"/><br/>
-				<label>Telefon mobil:</label>
-				<input type="text" name="tmobil" required="required" pattern="[0-9]{9}" title="Telefon mobil"/><br/>
-				<label>Data de naixement:</label>
-				<input type="text" name="naix" required="required"/><br/>
-				<label>DNI:</label>
-				<input type="text" name="dni" required="required"/><br/>
-				<label>Email:</label>
-				<input type="email" name="email" required="required"/><br/>
-				<label>Estudis</label>
-				<input type="text" name="estudis" required="required"/><br/>
-				<label>Situació laboral</label>
-				<input type="text" name="sl" required="required"/><br/>
-				<label>Prestació</label>
-				<input type="text" name="prestacio" required="required"/><br/>
+				<label>Codi:</label>
+				<input type="text" name="codi" required="required"/><br/>
+				<select name="ida">Area:
+					<option value="1">Area especialitat</option>
+					<option value="2">electro</option>
+					<option value="3"> pedrerp</option>
+					<option value="4"> picador</option>
+					<option value="5"></option>
+					<option value="6"></option>
+					<option value="7"></option>
+					<option value="8"></option>
+				</select><br/>
+
+				
+				<label>Descripcio:</label>
+				<input type="text" name="desc" required="required"/><br/>
+				<label>Hores:</label>
+				<input type="text" name="hores" required="required"  /><br/>
+				<label>Data inici:</label>
+				<input type="text" name="di" required="required"/><br/>
+				<label>Data final:</label>
+				<input type="text" name="df" required="required"/><br/>
+				<label>Horari:</label>
+				<input type="text" name="horari" required="required"/><br/>
+				<label>Torn</label>
+				<input type="text" name="torn" required="required"/><br/>
+				<label>Tipus</label>
+				<input type="text" name="tipus" required="required"/><br/>
+				<label>Requisits</label>
+				<input type="text" name="requisits" required="required"/><br/>
 			
-				<input class="botoncin" type="submit" name="guardar" value="Guardar"/><br/>
+				<input class="botoncin" type="submit" name="nou" value="Guardar"/><br/>
 			</form>
 			</div>
 		</div>

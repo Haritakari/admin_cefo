@@ -9,9 +9,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		public function guardar(){
 			
-			$consulta = "INSERT INTO producto(nombre,caracteristicas,id_tipo,id_proveedor,color,precio,precio_proveedor,stock,imagen)
-			VALUES ('$this->nombre','$this->caracteristicas','$this->id_tipo','$this->id_proveedor','$this->color',
-			'$this->precio','$this->precio_proveedor','$this->stock','$this->imagen');";
+			$consulta = "INSERT INTO cursos(nom,codi,id_area,descripcio,hores,data_inici,data_fi,horari,torn,requisits)
+			VALUES ('$this->nom','$this->codi','$this->id_area','$this->descripcio','$this->hores',
+			'$this->data_inici','$this->data_fi','$this->horari','$this->torn','$this->requisits');";
 				
 			return $this->db->query($consulta);
 		}

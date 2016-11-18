@@ -1,5 +1,5 @@
 function myUrl(id) {
-    location.href = "http://localhost/cefo_juandavid/index.php/cursos/curs/"+id+"";
+    location.href = "http://localhost/admincefo_juanjdavid/index.php/cursos/curs/"+id+"";
 }
 
 

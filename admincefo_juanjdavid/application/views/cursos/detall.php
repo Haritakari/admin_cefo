@@ -13,7 +13,7 @@
 		<label class="det">Quina graduació te:</label><span>	<?php echo $curso[0]->tipus;?></span><br/>
 		<label class="det">requisits per poder accedir:</label>	<span><?php echo $curso[0]->requisits;?></span><br/>
 		<label class="det">Descripció del curs:</label><span>	<?php echo $curso[0]->descripcio;?></span><br/>
-		<a class="botoncin bo1 bot2" href="http://localhost/cefo_juandavid/index.php/cursos/llistar">Tornar a cursos</a>
-		<a class="botoncin bo3" href="http://localhost/cefo_juandavid/index.php/preinscripcio">Preinscriures</a>
+		<a class="botoncin bo1 bot2" href="<?php echo base_url()?>/index.php/cursos/llistar">Tornar a cursos</a>
+		<a class="botoncin bo3" href="<?php echo base_url()?>/index.php/preinscripcio">Preinscriures</a>
 	</div>
 </div>

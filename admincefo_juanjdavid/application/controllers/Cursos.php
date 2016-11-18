@@ -39,11 +39,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$curso=new CursModel();
 		}
 		public function crear(){
+			//si no han pitjat el boto enviar mostrem el formulari
 			if (empty($this->input->post('nou'))){
 				
 				$data['usuario']=Login::getUsuario();
 				$this->load->view('templates/header', $data);
-				$this->load->view('cursos/introduir', $data);
+				$this->load->view('cursos/nou', $data);
 				$this->load->view('templates/footer', $data);
 			}
 			else{
@@ -57,16 +58,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$curs->data_fi=$this->input->post('df');
 			$curs->horari=$this->input->post('horari');
 			$curs->torn=$this->input->post('torn');
-			$curs->tipus=$this->input->post('requisits');
+			$curs->tipus=$this->input->post('tipus');
+			$curs->requisits=$this->input->post('requisits');
 			if(!$curs->guardar())
 				show_error('error al guardar el curs',206,'Error al guardar');		
-			
-			$data['curso']=$curs;
-			$data['missatge']='Curs afegit correctament';
-			$data['usuario']=Login::getUsuario();
-			$this->load->view('templates/header', $data);
-			$this->load->view('cursos/veure', $data);
-			$this->load->view('templates/footer', $data);
+
+			self::llistar($p=1,$f=10);
 			}
 		}
 	}
