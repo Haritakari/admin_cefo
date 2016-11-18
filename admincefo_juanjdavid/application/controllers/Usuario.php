@@ -111,7 +111,53 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('templates/footer', $data);
 			}
 		}
+		public function adminModificar($dni){      //admin modificando datos del alumno
+				$u=new UsuarioModel();
+				$u->dni=$dni;
+				$u=$u->getUsuario();
+				$u=$u[0];
+				
+				//si no llegan los datos a modificar
+				if(empty($_POST['modificar'])){
 		
+					//mostramos la vista del formulario
+					$data['usuari']=$u;
+					$data['usuario'] =Login::getUsuario();
+					$this->load->view('templates/header', $data);
+					$this->load->view('usuario/adminmodifica', $data);
+					$this->load->view('templates/footer', $data);
+						
+					//si llegan los datos por POST
+				}else{
+					//recuperar los datos actuales del usuario
+
+					$u->nom = $this->input->post("nom");
+					$u->cognom1 =$this->input->post("cognom1");
+					$u->cognom2 = $this->input->post("cognom2");
+					$u->data_naixement =$this->input->post("naix");
+					$u->dni = $this->input->post("dni");
+					$u->estudis = $this->input->post("estudis");
+					$u->situacio_laboral = $this->input->post("sl");
+					$u->prestacio = $this->input->post("prestacio");
+					$u->telefon_mobil = $this->input->post("tmobil");
+					$u->telefon_fix = $this->input->post("tfixe");
+					$u->email = $this->input->post("email");
+
+					//modificar el usuario en BDD
+					if(!$u->actualizar())
+						show_error('No es pot modificar',154,'Error en la modificacio');
+		
+						//mostrar la vista de éxito
+						$m='Modificacio realitzada correctament';
+						$data['usuari']=$u;
+						$data['usuario'] = Login::getUsuario();
+						$data['mensaje']=$m;
+						$this->load->view('templates/header', $data);
+						$this->load->view('usuario/adminmodifica', $data);
+						$this->load->view('result/exit2', $data);
+						$this->load->view('templates/footer', $data);
+				}
+		}
 		
 		//PROCEDIMIENTO PARA DAR DE BAJA UN USUARIO
 		//solicita confirmación
@@ -148,6 +194,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('templates/footer', $data);
 			}
 		}
+		public function llistar($p=1,$f=10){
+			$alumn=new UsuarioModel();
+			$alumnes=$alumn->llistar($p,$f);
+				
+			$numpag=$alumn->calc_query();
+			$numpag=ceil($numpag/$f);
+				
+				
+			$data['numpag']=$numpag;
+			$data['p']=$p;
+			$data['alumnes']=$alumnes;
+			$data['usuario']=Login::getUsuario();
+			$this->load->view('templates/header', $data);
+			$this->load->view('usuario/veure', $data);
+			$this->load->view('templates/footer', $data);
+		}
+		public function adminBaja($dni){
+			$u=new UsuarioModel();
+			$u->dni=$dni;
+			$u=$u->getUsuario();
+			$u=$u[0];
+			$data['usuario'] = Login::getUsuario();
+			//si no nos están enviando la conformación de baja
+			if(empty($_POST['confirmar'])){
+				//carga el formulario de confirmación
+				$data['usuari']=$u;
+				$this->load->view('templates/header', $data);
+				$this->load->view('usuario/baja1', $data);
+				$this->load->view('templates/footer', $data);
 		
+				//si nos están enviando la confirmación de baja
+			}else{
+					
+				if(!$u->borrar())
+					show_error('No es pot procesa la baixa',157,'Error al intentar donar de baixa');
+
+					//mostrar la vista de éxito
+
+					$data['mensaje'] = 'Eliminat OK';
+					$this->load->view('templates/header', $data);
+					$this->load->view('result/exit', $data);
+					$this->load->view('templates/footer', $data);
+			}
+		}
 	}
 ?>

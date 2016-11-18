@@ -2,8 +2,10 @@
 	margin: 0px;
 	padding: 0px;
 }
-td>img{
-	height:30px;
+td>a>img{
+	height:35px;
+	padding:10px;
+	margin:-10px;
 }
 tr{
 	cursor:pointer;

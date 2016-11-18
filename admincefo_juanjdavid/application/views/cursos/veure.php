@@ -34,7 +34,7 @@
 							<td>$item->data_inici</td>
 							<td>$item->data_fi</td>
 							<td onclick='event.stopPropagation(),myUrl2($item->id);'><img src='".base_url()."/images/mod.png'/></td>
-							<td onclick='event.stopPropagation();myUrl3($item->id)'><img src='".base_url()."/images/borr.png'/></td>
+							<td onclick='event.stopPropagation(),myUrl3($item->id);'><img src='".base_url()."/images/borr.png'/></td>
 						</tr></a>";
 				}?></table>
 				 <?php if($p>=2){?>

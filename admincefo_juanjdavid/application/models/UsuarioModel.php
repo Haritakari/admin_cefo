@@ -69,5 +69,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$use = $resultado->custom_result_object('UsuarioModel');
 			return $use;
 		}	
+		public function llistar($p=1,$fin=10){
+				
+			$princ=$p;
+			$princ2=($princ-1)*$fin;
+			$consulta="SELECT *	FROM usuaris LIMIT $princ2,$fin";
+			$lista=$this->db->query($consulta)->custom_result_object('UsuarioModel');
+		
+			return $lista;
+		}
+		public function calc_query(){
+			$consulta="SELECT *	FROM usuaris";
+			return $this->db->query($consulta)->num_rows();
+		
+		}
 	}
 ?>
