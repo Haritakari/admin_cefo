@@ -8,6 +8,7 @@
 				<tr>
 					<th>Codi</th>
 					<th>Nom</th>
+					<th>Area</th>
 					<th>Descripcio</th>
 					<th>Hores</th>
 					<th>Data Inici</th>
@@ -27,12 +28,13 @@
 						<tr onclick='myUrl($item->id);'>
 							<td>$item->codi</td>
 							<td>$item->nom</td>
+							<td>$item->id_area</td>
 							<td>$item->descripcio</td>
 							<td>$item->hores</td>
 							<td>$item->data_inici</td>
 							<td>$item->data_fi</td>
-							<td><img src='".base_url()."/images/mod.png'/></td>
-							<td><img src='".base_url()."/images/borr.png'/></td>
+							<td onclick='event.stopPropagation(),myUrl2($item->id);'><img src='".base_url()."/images/mod.png'/></td>
+							<td onclick='event.stopPropagation();myUrl3($item->id)'><img src='".base_url()."/images/borr.png'/></td>
 						</tr></a>";
 				}?></table>
 				 <?php if($p>=2){?>

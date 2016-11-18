@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		public function guardar(){
 			
-			$consulta = "INSERT INTO cursos(nom,codi,id_area,descripcio,hores,data_inici,data_fi,horari,torn,requisits)
+			$consulta = "INSERT INTO (nom,codi,id_area,descripcio,hores,data_inici,data_fi,horari,torn,requisits)
 			VALUES ('$this->nom','$this->codi','$this->id_area','$this->descripcio','$this->hores',
 			'$this->data_inici','$this->data_fi','$this->horari','$this->torn','$this->requisits');";
 				
@@ -18,18 +18,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		
 		
-		public function actualizar(){
+		public function actualitzar(){
 			
-			$consulta = "UPDATE producto
-							  SET nombre='$this->nombre', 
-							  nombre='$this->caracteristicas',
-							  nombre='$this->id_tipo',
-							  nombre='$this->id_proveedor',
-							  nombre='$this->color',
-							  nombre='$this->precio',
-							  nombre='$this->precio_proveedor',
-							  nombre='$this->stock',
-							  nombre='$this->imagen'
+			$consulta = "UPDATE cursos
+							  SET nom='$this->nom', 
+							  codi='$this->codi',
+							  id_area='$this->id_area',
+							  descripcio='$this->descripcio',
+							  hores='$this->hores',
+							  data_inici='$this->data_inici',
+							  data_fi='$this->data_fi',
+							  horari='$this->horari',
+							  torn='$this->torn',
+							  requisits='$this->requisits'
 							  WHERE id='$this->id';";
 			return $this->db->query($consulta);
 		}
@@ -37,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		
 		public function borrar(){
-			$consulta = "DELETE FROM producto WHERE id='$this->id';";
+			$consulta = "DELETE FROM cursos WHERE id='$this->id';";
 			return $this->db->query($consulta);
 		}
 		public function llistar($p=1,$fin=10){

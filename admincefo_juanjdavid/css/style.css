@@ -5,6 +5,9 @@
 td>img{
 	height:30px;
 }
+tr{
+	cursor:pointer;
+}
 :root{
 background-color:#9FF781;
 }
