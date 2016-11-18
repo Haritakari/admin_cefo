@@ -16,6 +16,8 @@
 				</tr>
 				
 			<?php 
+			if(!empty($missatge))echo $missatge[0];
+			echo "<a href='".base_url()."index.php/cursos/crear'>Insertar nou Curs</a>";
 				foreach ($cursos as $pro=>$item){
 					
 					echo "
