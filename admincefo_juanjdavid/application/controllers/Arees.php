@@ -38,6 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 			}
 			else{
+			
 				$area->nom = $this->input->post("nom");
 				//modificar el area en BDD
 				if(!$area->actualitzar())
