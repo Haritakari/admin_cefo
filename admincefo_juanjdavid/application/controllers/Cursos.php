@@ -25,16 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('cursos/veure', $data);
 			$this->load->view('templates/footer', $data);
 		}
-		public function curs($id){
-			$curso=new CursModel();
-			$curso=$curso->getCurs($id);
-			
-			$data['curso']=$curso;
-			$data['usuario']=Login::getUsuario();
-			$this->load->view('templates/header', $data);
-			$this->load->view('cursos/detall', $data);
-			$this->load->view('templates/footer', $data);
-		}
+		
 		public function borrar($id){
 			$curso=new CursModel();
 			$curso=$curso->getCurs($id);

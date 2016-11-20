@@ -69,6 +69,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$use = $resultado->custom_result_object('UsuarioModel');
 			return $use;
 		}	
+		public function getUsuario2(){
+			$user_table = 'usuaris';
+			$consulta = "SELECT * FROM $user_table WHERE id='$this->id';";
+			$resultado = $this->db->query($consulta);
+			$use = $resultado->custom_result_object('UsuarioModel');
+			return $use;
+		}
 		public function llistar($p=1,$fin=10){
 				
 			$princ=$p;

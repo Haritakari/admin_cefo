@@ -238,5 +238,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$this->load->view('templates/footer', $data);
 			}
 		}
+		public function alumne($id){
+			$alumne=new UsuarioModel();
+			$alumne->id=$id;
+			$alumne=$alumne->getUsuario2();
+			
+			
+			
+			$data['alumne']=$alumne;
+			$data['usuario']=Login::getUsuario();
+			$this->load->view('templates/header', $data);
+			$this->load->view('usuario/detall', $data);
+			$this->load->view('templates/footer', $data);
+		}
 	}
 ?>
