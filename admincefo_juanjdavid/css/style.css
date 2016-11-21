@@ -7,6 +7,11 @@ td>a>img{
 	padding:10px;
 	margin:-10px;
 }
+td img{
+	height:35px;
+	padding:10px;
+	margin:-10px;
+}
 tr{
 	cursor:pointer;
 }
@@ -68,6 +73,13 @@ li.unem{
 	border-bottom:solid 2px  white;
 	border-top:solid 2px  white;
 }
+.content3{
+	margin-top:150px;
+	margin-bottom:-220px;
+	background-color: #5882FA;
+	border-bottom:solid 2px  white;
+	border-top:solid 2px  white;
+}
 
 #pagin{
 	display:inline-block;
@@ -114,7 +126,7 @@ li.unem{
 	font-size:1.1em;
 	margin-left:20px;
 }
-.content, .content2{
+.content, .content2, .content3{
 	text-align: center;
 }
 

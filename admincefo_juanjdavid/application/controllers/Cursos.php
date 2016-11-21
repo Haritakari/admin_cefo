@@ -107,6 +107,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					self::llistar($p=1,$f=10);
 			}
 		}
+		public function curs($id){
+			$curso=new CursModel();
+			$curso=$curso->getCurs($id);
+				
+				
+				
+			$data['curso']=$curso;
+			$data['usuario']=Login::getUsuario();
+			$this->load->view('templates/header', $data);
+			$this->load->view('cursos/detall', $data);
+			$this->load->view('templates/footer', $data);
+		}
 		
 	}
 				

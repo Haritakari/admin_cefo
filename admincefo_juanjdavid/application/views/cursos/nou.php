@@ -35,8 +35,9 @@
 				<input type="text" name="tipus" required="required"/><br/>
 				<label>Requisits</label>
 				<input type="text" name="requisits" required="required"/><br/>
-			
+				<a class="botoncin" href="<?php echo base_url()?>/index.php/cursos/llistar">Enrere</a>
 				<input class="botoncin" type="submit" name="nou" value="Guardar"/><br/>
+				
 			</form>
 			</div>
 		</div>

@@ -8,8 +8,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		public function guardar(){
 			
-			$consulta = "INSERT INTO arees_formatives(nom,id)
-			VALUES ('$this->nom','$this->id');";
+			$consulta = "INSERT INTO arees_formatives(nom)
+			VALUES ('$this->nom');";
 		
 			return $this->db->query($consulta);
 		}
