@@ -14,6 +14,41 @@
 		<label class="det">requisits per poder accedir:</label>	<span><?php echo $curso[0]->requisits;?></span><br/>
 		<label class="det">Descripció del curs:</label><span>	<?php echo $curso[0]->descripcio;?></span><br/>
 		<a class="botoncin bo1 bot2" href="<?php echo base_url()?>/index.php/cursos/llistar">Tornar a cursos</a>
-		<a class="botoncin bo3" href="<?php echo base_url()?>/index.php/preinscripcio">Preinscriures</a>
+		
+		<?php 
+		if(!empty($usepreins)){
+		?><h2>Alumnes preinscrits</h2> 
+		<table class="most">
+				<tr>
+					<th>Nom</th>
+					<th>Dni</th>
+					<th>1er Cognom</th>
+					<th>2on Cognom</th>
+					<th>Data Naixement</th>
+					<th>Estudis</th>
+					<th>Situacio laboral</th>
+					<th>email</th>
+			
+				</tr>
+				<?php 
+		foreach ($usepreins as $p=>$item)
+			echo "
+						<tr>
+							<td>$item->nom</td>
+							<td>$item->dni</td>
+							<td>$item->cognom1</td>
+							<td>$item->cognom2</td>
+							<td>$item->data_naixement</td>
+							<td>$item->estudis</td>
+							<td>$item->situacio_laboral</td>
+							<td>$item->email</td>
+							
+							<td><a class='bo2 botoncin' href='".base_url()."index.php/preinscripcions/eliminar/$item->id/".$curso[0]->id."'>Eliminar subscripcio</a></td>
+						</tr></a>";
+			
+		}
+			?>
+		</table>
+		
 	</div>
 </div>

@@ -111,9 +111,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 		public function curs($id){
+			$this->load->model('preinscripcionsModel');
 			$curso=new CursModel();
 			$curso=$curso->getCurs($id);
-
+			$prei=new PreinscripcionsModel();
+			$prei->id_curs=$id;
+			$preins=$prei->getPreinscripcionsC();
+			$usepreins=array();
+			if(count($preins)>=1){
+				foreach ($preins as $p=>$v){
+					$user= new UsuarioModel();
+					$user->id=$v->id_usuari;
+					$user=$user->getUsuario2();
+					$usepreins[]=$user[0];
+				}
+			}
+			$data['usepreins']=$usepreins;
 			$data['curso']=$curso;
 			$data['usuario']=Login::getUsuario();
 			$this->load->view('templates/header', $data);

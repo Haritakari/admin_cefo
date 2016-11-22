@@ -156,16 +156,16 @@ table{
 	height:40px;
 }
 
-.content .most th{
+.content .most th,.cont .most th{
 	color: white;
 	background-color: #04B45F;
 	text-align: center;
 	font-weight: bold;
 }
-.content .most td, .content .most th{
+.content .most td, .content .most th,.cont .most td, .cont .most th{
 	padding: 10px;
 }
-.content .most tr{
+.content .most tr,.cont .most tr{
 	background-color: #2E9AFE;
 }
 .content .most tr:hover{

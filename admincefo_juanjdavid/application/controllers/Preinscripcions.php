@@ -57,11 +57,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		//PROCEDIMIENTO PARA DAR DE BAJA PREINSCRIPCIONES
 		//solicita confirmación
-		public function baja(){
-			
+		public function baja(){	
 			//crear una instancia de Preinscripciones
 			$p = new PreinscripcionsModel();
-			
 			$usua=Login::getUsuario();
 			$curs= new CursModel;
 			$curs= $curs->getCurs($id_curs);
@@ -69,10 +67,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			//si no nos están enviando la conformación de baja
 			if(!empty($_POST['confirmar'])){	
 				//carga el formulario de confirmación
-		
 				if(!$p->borrar())
 					show_error('No es pot procesa la baixa',257,'Error al intentar donar de baixa');
-
 				//mostrar la vista de éxito
 				$data['usuario'] = $usua;
 				$data['mensaje'] = 'Eliminat OK';
@@ -81,6 +77,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('templates/footer', $data);
 			}
 		}
-		
+		public function eliminar($idu,$idc){
+			$this->load->model('CursModel');
+			//crear una instancia de Preinscripciones
+			$p = new PreinscripcionsModel();
+			$p->id_usuari=$idu;
+			$p->id_curs=$idc;
+			//mostrar vista en cas de no rebre per post
+			$confirm=$this->input->post('delete');
+			if(empty($confirm)){
+				$data['id']=$idc;
+				$data['preins'] = $p;
+				$data['usuario'] = Login::getUsuario();
+				$data['mensaje'] = 'Eliminat OK';
+				$this->load->view('templates/header', $data);
+				$this->load->view('preinscripcions/borrar', $data);
+				$this->load->view('templates/footer', $data);
+			}
+			else{
+				if(!$p->borrarPAC())
+					show_error('No es pot eliminar aquesta preinscripcio',257,'Error al intentar eliminar');
+					//mostrar la vista de éxito
+					
+					$curso=new CursModel();
+					$curso=$curso->getCurs($idc);
+					
+					$data['curso'] = $curso;
+					$data['usuario'] = Login::getUsuario();
+					$data['mensaje'] = 'Eliminat OK';
+					$this->load->view('templates/header', $data);
+					$this->load->view('result/exit3', $data);
+					$this->load->view('cursos/detall', $data);
+					$this->load->view('templates/footer', $data);
+			}
+		}
 	}
 ?>

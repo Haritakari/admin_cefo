@@ -12,6 +12,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 			return $this->db->query($consulta)->custom_result_object('PreinscripcionsModel');
 		}
+		//lee preinscripciones de un Curso
+		public function getPreinscripcionsC(){
+		
+			$consulta = "SELECT * FROM preinscripcions WHERE id_curs = '$this->id_curs';";
+				
+			return $this->db->query($consulta)->custom_result_object('PreinscripcionsModel');
+		}
 		
 		
 		//guarda la preinscripcions en la BDD
