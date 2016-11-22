@@ -36,9 +36,9 @@
 				<ul class="nav">
 					<li class="unem"><a href="<?php echo base_url()?>index.php">Inici</a></li>
 					<li class="unem"><a href="<?php echo base_url()?>index.php/cursos/llistar">Cursos</a></li>
-					<li class="unem"><a href="<?php echo base_url()?>index.php/usuario/llistar">Alumnos</a></li>
-					<li class="unem"><a href="<?php echo base_url()?>index.php/preinscripcions/llistarP">Preinscripciones</a></li>
-					<li class="unem"><a href="<?php echo base_url()?>index.php/arees/llistar">Areas formativas</a></li>
+					<li class="unem"><a href="<?php echo base_url()?>index.php/usuario/llistar">Alumnes</a></li>
+					<li class="unem"><a href="<?php echo base_url()?>index.php/preinscripcions/llistarP">Preinscripcions</a></li>
+					<li class="unem"><a href="<?php echo base_url()?>index.php/arees/llistar">Arees formatives</a></li>
 				</ul>
 		<?php 	
 		}

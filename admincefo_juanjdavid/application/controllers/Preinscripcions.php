@@ -98,16 +98,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				if(!$p->borrarPAC())
 					show_error('No es pot eliminar aquesta preinscripcio',257,'Error al intentar eliminar');
 					//mostrar la vista de éxito
-					
-					$curso=new CursModel();
-					$curso=$curso->getCurs($idc);
-					
-					$data['curso'] = $curso;
+
 					$data['usuario'] = Login::getUsuario();
 					$data['mensaje'] = 'Eliminat OK';
 					$this->load->view('templates/header', $data);
 					$this->load->view('result/exit3', $data);
-					$this->load->view('cursos/detall', $data);
+					$this->load->view('cursos/llistar', $data);
 					$this->load->view('templates/footer', $data);
 			}
 		}
