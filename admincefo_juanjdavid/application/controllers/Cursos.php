@@ -3,15 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	class Cursos extends CI_Controller {
 		
-		public function __construct()
-		{
+		public function __construct(){
 			parent::__construct();
 			$this->load->model('cursModel');
 		}
 		
 		public function llistar($p=1,$f=10){
+			$this->load->model('cursModel');
 			$curso=new CursModel();
-			$cursos=$curso->llistar($p,$f);
+			$cursos=$curso->llista($p,$f);
 			
 			$numpag=$curso->calc_query();
 			$numpag=ceil($numpag/$f);
@@ -31,7 +31,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$curso=$curso->getCurs($id);
 			$curso=$curso[0];
 			//si no arriba l aconfirmacio per post obrim la confirmacio
-			if (empty($this->input->post('delete'))){
+			$pedo=$this->input->post('delete');
+			if (empty($pedo)){
 				$data['curso']=$curso;
 				$data['usuario']=Login::getUsuario();
 				$this->load->view('templates/header', $data);
@@ -51,7 +52,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		public function crear(){
 			//si no han pitjat el boto enviar mostrem el formulari
-			if (empty($this->input->post('nou'))){
+			$pedo=$this->input->post('nou');
+			if (empty($pedo)){
 				
 				$data['usuario']=Login::getUsuario();
 				$this->load->view('templates/header', $data);
@@ -82,7 +84,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$curs=new CursModel();
 			$curs=$curs->getCurs($id);
 			$curs=$curs[0];
-			if (empty($this->input->post('modificar'))){
+			$pedo=$this->input->post('modificar');
+			if (empty($pedo)){
 				$data['curs']=$curs;
 				$data['usuario']=Login::getUsuario();
 				$this->load->view('templates/header', $data);
@@ -110,9 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function curs($id){
 			$curso=new CursModel();
 			$curso=$curso->getCurs($id);
-				
-				
-				
+
 			$data['curso']=$curso;
 			$data['usuario']=Login::getUsuario();
 			$this->load->view('templates/header', $data);

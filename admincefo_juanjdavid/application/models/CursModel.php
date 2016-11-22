@@ -41,19 +41,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$consulta = "DELETE FROM cursos WHERE id='$this->id';";
 			return $this->db->query($consulta);
 		}
-		public function llistar($p=1,$fin=10){
+		public function llista($p,$fin){
 			
 			$princ=$p;
 			$princ2=($princ-1)*$fin;
-			$consulta="SELECT id,nom,codi,id_area,descripcio,hores,data_inici,data_fi,
-			horari,torn,tipus,requisits	FROM cursos LIMIT $princ2,$fin";
-			$lista=$this->db->query($consulta)->custom_result_object('CursModel');
-
+			$consulta="SELECT *	FROM cursos LIMIT $princ2,$fin";
+			$query=$this->db->query($consulta);
+			$lista=$query->custom_result_object('CursModel');
 			return $lista;
 		}
 		public function calc_query(){
-			$consulta="SELECT id,nom,codi,id_area,descripcio,hores,data_inici,data_fi,
-			horari,torn,tipus,requisits	FROM cursos";
+			$consulta="SELECT *	FROM cursos";
 			return $this->db->query($consulta)->num_rows();
 		
 		}
