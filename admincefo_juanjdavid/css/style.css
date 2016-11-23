@@ -68,7 +68,8 @@ li.unem{
 	border-top:solid 2px  white;
 }
 .content2{
-	margin-top:-20px;
+	margin-top:-50px;
+	margin-bottom:100px;
 	background-color: #5882FA;
 	border-bottom:solid 2px  white;
 	border-top:solid 2px  white;
@@ -156,23 +157,23 @@ table{
 	height:40px;
 }
 
-.content .most th,.cont .most th{
+.most th,.cont .most th{
 	color: white;
 	background-color: #04B45F;
 	text-align: center;
 	font-weight: bold;
 }
-.content .most td, .content .most th,.cont .most td, .cont .most th{
+.most td, .most th,.cont .most td, .cont .most th{
 	padding: 10px;
 }
-.content .most tr,.cont .most tr{
+.most tr,.cont .most tr{
 	background-color: #2E9AFE;
 }
-.content .most tr:hover{
+.most tr:hover{
 	background-color: #819FF7;
 }
 .cont{
-	margin-top:250px;
+	margin-top:150px;
 	margin-bottom:100px;
 	background-color: #5882FA;
 	border-bottom:solid 2px  white;

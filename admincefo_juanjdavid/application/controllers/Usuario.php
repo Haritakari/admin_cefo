@@ -55,62 +55,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('templates/footer', $data);
 			}
 		}
-		
-
-		//PROCEDIMIENTO PARA MODIFICAR UN USUARIO
-		public function modificar(){
-			//si no hay usuario identificado... error
-			if(!Login::getUsuario())
-				show_error('Tens que estar identificat per modificar les teves dades',299,'Error , Identificat');
-				
-			//si no llegan los datos a modificar
-			if(empty($_POST['modificar'])){
-				
-				//mostramos la vista del formulario
-				$data['usuario'] = Login::getUsuario();
-				$this->load->view('templates/header', $data);
-				$this->load->view('usuario/modificacio', $data);
-				$this->load->view('templates/footer', $data);
-					
-				//si llegan los datos por POST
-			}else{
-				//recuperar los datos actuales del usuario
-				$u = Login::getUsuario();
-				
-				
-				
-				$u->nom = $this->input->post("nom");
-				$u->cognom1 =$this->input->post("cognom1");
-				$u->cognom2 = $this->input->post("cognom2");
-				$u->data_naixement =$this->input->post("naix");
-				$u->dni = $this->input->post("dni");
-				$u->estudis = $this->input->post("estudis");
-				$u->situacio_laboral = $this->input->post("sl");
-				$u->prestacio = $this->input->post("prestacio");
-				$u->telefon_mobil = $this->input->post("tmobil");
-				$u->telefon_fix = $this->input->post("tfixe");
-				$u->email = $this->input->post("email");
-			
-					
-			
-				//modificar el usuario en BDD
-				if(!$u->actualizar())
-					show_error('No es pot modificar',154,'Error en la modificacio');
-		
-				//hace de nuevo "login" para actualizar los datos del usuario
-				//desde la BDD a la variable de sesión.
-				Login::log_in($u->dni, $u->data_naixement);
-					
-				//mostrar la vista de éxito
-				$m='Modificacio realitzada correctament';
-				$data['usuario'] = Login::getUsuario();
-				$data['mensaje']=$m;
-				$this->load->view('templates/header', $data);
-				$this->load->view('usuario/modificacio', $data);
-				$this->load->view('result/exit2', $data);
-				$this->load->view('templates/footer', $data);
-			}
-		}
 		public function adminModificar($dni){      //admin modificando datos del alumno
 				$u=new UsuarioModel();
 				$u->dni=$dni;
@@ -238,13 +182,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$this->load->view('templates/footer', $data);
 			}
 		}
-		public function alumne($id){
+	public function alumne($id){
+			if(!Login::getUsuario())
+				show_error('Tens que estar identificat ',294,'Error , Identificat');
+			$this->load->model('preinscripcionsModel');
+			$this->load->model('CursModel');
+			
 			$alumne=new UsuarioModel();
 			$alumne->id=$id;
 			$alumne=$alumne->getUsuario2();
-			
-			
-			
+			$pre=new PreinscripcionsModel();
+			$pre->id_usuari=$id;
+			$preinsc=$pre->getPreinscripcions();
+			$curspreins=array();
+			if(count($preinsc)>=1){
+				foreach ($preinsc as $p=>$v){
+					$curs= new CursModel();
+					$curs=$curs->getCurs($v->id_curs);
+					$curspreins[]=$curs[0];
+				}
+			}
+				
+			$data['cursos']=$curspreins;
 			$data['alumne']=$alumne;
 			$data['usuario']=Login::getUsuario();
 			$this->load->view('templates/header', $data);

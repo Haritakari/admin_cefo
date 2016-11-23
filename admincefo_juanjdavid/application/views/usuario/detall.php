@@ -13,6 +13,9 @@
 		<a class="botoncin bo1 bot2" href="<?php echo base_url()?>/index.php/usuario/llistar">Tornar a llistat alumnes</a>
 		
 	</div>
+	<?php 
+	//if(!empty($curspreins))
+		if (count($cursos)>=1){?>
 	<div class="content2">
 		<h2>Cursos als que s'ha preinscrit</h2>
 		
@@ -43,8 +46,9 @@
 			
 							<td'> <a href='base_url()/index.php/preinscripcions/borrar/$item->id'<img src='".base_url()."/images/borr.png'/></td>
 						</tr></a>";
-				}?></table>
-		?>
+				}
+	}?></table>
+		
 		
 		
 	</div>
