@@ -14,7 +14,7 @@
 		
 	</div>
 	<?php 
-	//if(!empty($curspreins))
+	
 		if (count($cursos)>=1){?>
 	<div class="content2">
 		<h2>Cursos als que s'ha preinscrit</h2>
