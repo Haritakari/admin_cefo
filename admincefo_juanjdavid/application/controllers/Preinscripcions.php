@@ -8,6 +8,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			parent::__construct();
 			$this->load->model('PreinscripcionsModel');
 		}
+		public function llistar(){
+			
+			$pre=New PreinscripcionsModel();
+			$pre=$pre->getAllPreinscripcions();
+			$data['preinscripcions']=$pre;
+			$data['usuario'] = Login::getUsuario();
+			$data['mensaje'] = 'Eliminat OK';
+			$this->load->view('templates/header', $data);
+			$this->load->view('preinscripcions/veure', $data);
+			$this->load->view('templates/footer', $data);
+		}
+		
 		
 		//PROCEDIMIENTO PARA LEER PREINSCRIPCIONES (SI LAS HAY).
 		public function LeerPreinscripciones($id_usuari){
