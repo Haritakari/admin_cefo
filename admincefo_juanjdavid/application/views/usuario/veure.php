@@ -2,7 +2,7 @@
 
 		<div>
 			<h2>Alumnes </h2>
-			<table class="most">
+			<table class="most auto">
 				<tr>
 					<th>Nom</th>
 					<th>Dni</th>
