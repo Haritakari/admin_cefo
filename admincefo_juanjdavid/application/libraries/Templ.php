@@ -5,9 +5,9 @@
 		public static function login(){
 			?>
 			<form class="derecha" method="post" id="login" autocomplete="off">
-            	<input placeholder="User" class="form-control" type="text" name="user" required="required" />
-				<input placeholder="Password" class="form-control" type="password" name="password" required="required"/>
-				<input type="submit" name="login" class="botoncin" value="Login"/>
+            	<input class="peq" placeholder="User" class="form-control" type="text" name="user" required="required" />
+				<input class="peq" placeholder="Password" class="form-control" type="password" name="password" required="required"/>
+				<input type="submit" name="login" class="botoncin bo5" value="Login"/>
 			</form>
 			<?php 
 		}
@@ -21,7 +21,7 @@
 					<span class="logge"><?php echo $usuario->nom;?></span>
 					<span class="logger"> 	<?php echo ' ('.$usuario->email.')';?>
 					<?php if($usuario->admin) echo ", ets l'administrador ";?></span>
-					<input class="botoncin" type="submit" name="logout" value="Logout" />
+					<input class="botoncin bo5" type="submit" name="logout" value="Logout" />
 
 		</form>	
 			<?php 

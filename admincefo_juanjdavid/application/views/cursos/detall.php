@@ -17,7 +17,10 @@
 		
 		<?php 
 		if(!empty($usepreins)){
-		?><h2>Alumnes preinscrits</h2> 
+		?>
+		</div>
+		<div class="content2">
+		<h2>Alumnes preinscrits</h2> 
 		<table class="most">
 				<tr>
 					<th>Nom</th>
@@ -43,7 +46,7 @@
 							<td>$item->situacio_laboral</td>
 							<td>$item->email</td>
 							
-							<td><a class='bo2 botoncin' href='".base_url()."index.php/preinscripcions/eliminar/$item->id/".$curso[0]->id."'>Eliminar subscripcio</a></td>
+							<td><a class='bo3 botoncin' href='".base_url()."index.php/preinscripcions/eliminar/$item->id/".$curso[0]->id."'>Eliminar subscripcio</a></td>
 						</tr></a>";
 			
 		}
