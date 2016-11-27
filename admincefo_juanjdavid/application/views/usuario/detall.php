@@ -33,13 +33,13 @@
 						<tr>
 							<td>$item->codi</td>
 							<td>$item->nom</td>
-							<td>$item->id_area</td>
+							<td>$item->area</td>
 							<td>$item->descripcio</td>
 							<td>$item->hores</td>
 							<td>$item->data_inici</td>
 							<td>$item->data_fi</td>
 			
-							<td'> <a href='base_url()/index.php/preinscripcions/borrar/$item->id'<img src='".base_url()."/images/borr.png'/></a></td>
+							<td> <a href='".base_url()."/index.php/preinscripcions/eliminar/".$alumne[0]->id."/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
 						</tr>";
 				}
 				echo "</table><a class='botoncin bo1' href='".base_url()."/index.php/usuario/llistar'>Tornar a llistat alumnes</a>";
@@ -63,7 +63,7 @@
 						<tr>
 							<td>$item->nom</td>
 							
-							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/subscripcions/eliminar/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
+							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/subscripcions/eliminar/".$alumne[0]->id."/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
 						</tr></a>";
 				}?>
 		</table>

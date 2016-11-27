@@ -59,7 +59,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		
 		public function getCurs($id){
-			$query = $this->db->get_where('cursos',array('id' => $id));
+			$consulta="Select u.id,u.codi,u.id_area,u.nom,u.descripcio,u.hores,u.data_inici,u.data_fi,u.horari,u.torn,u.tipus,u.requisits,a.nom as area
+			From cursos u right join  arees_formatives a on u.id_area = a.id where u.id = '$id';";
+			$query=$this->db->query($consulta);
+			
 			return $query->custom_result_object('CursModel');
 		}
 		public function veriArea($idarea){

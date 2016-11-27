@@ -75,30 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('templates/footer', $data);
 		}
 		
-		//PROCEDIMIENTO PARA DAR DE BAJA PREINSCRIPCIONES
-		//solicita confirmación
-		public function baja(){	
-			$usuario=Login::getUsuario();
-			if(!$usuario->admin)
-				redirect(base_url().'index.php');
-			//crear una instancia de Preinscripciones
-			$p = new PreinscripcionsModel();
-			$curs= new CursModel;
-			$curs= $curs->getCurs($id_curs);
-			
-			//si no nos están enviando la conformación de baja
-			if(!empty($_POST['confirmar'])){	
-				//carga el formulario de confirmación
-				if(!$p->borrar())
-					show_error('No es pot procesa la baixa',404,'Error al intentar donar de baixa');
-				//mostrar la vista de éxito
-				$data['usuario'] = $usuario;
-				$data['mensaje'] = 'Eliminat OK';
-				$this->load->view('templates/header', $data);
-				$this->load->view('result/exit', $data);
-				$this->load->view('templates/footer', $data);
-			}
-		}
+		
 		public function eliminar($idu,$idc){
 			$usuario=Login::getUsuario();
 			if(!$usuario->admin)
@@ -114,7 +91,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$data['id']=$idc;
 				$data['preins'] = $p;
 				$data['usuario'] = $usuario;
-				$data['mensaje'] = 'Eliminat OK';
 				$this->load->view('templates/header', $data);
 				$this->load->view('preinscripcions/borrar', $data);
 				$this->load->view('templates/footer', $data);
@@ -124,13 +100,53 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					show_error('No es pot eliminar aquesta preinscripcio',404,'Error al intentar eliminar');
 					//mostrar la vista de éxito
 
-					$data['usuario'] = $usuario;
-					$data['mensaje'] = 'Eliminat OK';
-					$this->load->view('templates/header', $data);
-					$this->load->view('result/exit3', $data);
-					$this->load->view('cursos/llistar', $data);
-					$this->load->view('templates/footer', $data);
+					$this->alumne($idu);
 			}
+		}
+	private function alumne($id){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
+			$this->load->model('PreinscripcionsModel');
+			$this->load->model('subscripcionsModel');
+			$this->load->model('AreesModel');
+			$this->load->model('cursModel');
+			
+			$alumne=new UsuarioModel();
+			$alumne->id=$id;
+			$alumne=$alumne->getUsuario2();
+			
+			$pre=new PreinscripcionsModel();
+			$pre->id_usuari=$id;
+			$preinsc=$pre->getPreinscripcions();
+			$curspreins=array();
+			if(count($preinsc)>=1){
+				foreach ($preinsc as $p=>$v){
+					$curs= new CursModel();
+					$curs=$curs->getCurs($v->id_curs);
+					$curspreins[]=$curs[0];
+				}
+			}
+			$sub=new SubscripcionsModel();
+			$sub->id_usuari=$id;
+			$subscri=$sub->getSubscripcions();
+				
+			$alusubs=array();
+			if(count($subscri)>=1){
+				foreach ($subscri as $p=>$v){
+					$area= new AreesModel();
+					$area->id=$v->id_area;
+					$area=$area->getArea();
+					$alusubs[]=$area[0];
+				}
+			}
+			$data['alusubs']=$alusubs;
+			$data['cursos']=$curspreins;
+			$data['alumne']=$alumne;
+			$data['usuario']=$usuario;
+			$this->load->view('templates/header', $data);
+			$this->load->view('usuario/detall', $data);
+			$this->load->view('templates/footer', $data);
 		}
 	}
 ?>

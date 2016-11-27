@@ -21,7 +21,7 @@
 				foreach ($alumnes as $pro=>$item){
 					
 					echo "
-						<tr onclick='myUrl1($item->id);'>
+						<tr class='point' onclick='myUrl1($item->id);'>
 							<td>$item->nom</td>
 							<td>$item->dni</td>
 							<td>$item->cognom1</td>
