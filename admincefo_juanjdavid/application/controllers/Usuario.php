@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				//guardar el usuario en BDD
 				if(!$u->guardar())
-					show_error('No ha pogut enregistrar les dades',289,'Error en el registre');
+					show_error('No ha pogut enregistrar les dades',404,'Error en el registre');
 				
 				//mostrar la vista de éxito
 				$data['usuario'] = $usua;
@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					//modificar el usuario en BDD
 					if(!$u->actualizar())
-						show_error('No es pot modificar',154,'Error en la modificacio');
+						show_error('No es pot modificar',404,'Error en la modificacio');
 		
 						//mostrar la vista de éxito
 						$m='Modificacio realitzada correctament';
@@ -110,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$u = Login::getUsuario();
 			
 			//asegurarse que el usuario está identificado
-			if(!$u) show_error('Tens que estar identificat per poderte donar de baixa',235,'Error Login');
+			if(!$u) show_error('Tens que estar identificat per poderte donar de baixa',404,'Error Login');
 			
 			//si no nos están enviando la conformación de baja
 			if(empty($_POST['confirmar'])){	
@@ -125,7 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}else{
 			
 				if(!$u->borrar())
-					show_error('No es pot procesa la baixa',157,'Error al intentar donar de baixa');
+					show_error('No es pot procesa la baixa',404,'Error al intentar donar de baixa');
 
 				//cierra la sesion
 				Login::log_out();
@@ -172,7 +172,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}else{
 					
 				if(!$u->borrar())
-					show_error('No es pot procesa la baixa',157,'Error al intentar donar de baixa');
+					show_error('No es pot procesa la baixa',404,'Error al intentar donar de baixa');
 
 					//mostrar la vista de éxito
 

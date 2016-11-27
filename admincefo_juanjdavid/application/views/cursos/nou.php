@@ -2,42 +2,54 @@
 		<div>
 			<h2>Nou curs</h2>
 			<form method="post" autocomplete="off">
-
-				<label>Nom del curs:</label>
-				<input type="text" name="nom" required="required"/><br/>
-				<label>Codi:</label>
-				<input type="text" name="codi" required="required"/><br/>
-				<select name="ida">Area:
-					<option value="1">Area especialitat</option>
-					<option value="2">electro</option>
-					<option value="3"> pedrerp</option>
-					<option value="4"> picador</option>
-					<option value="5"></option>
-					<option value="6"></option>
-					<option value="7"></option>
-					<option value="8"></option>
-				</select><br/>
-
-				
-				<label>Descripcio:</label>
-				<input type="text" name="desc" required="required"/><br/>
-				<label>Hores:</label>
-				<input type="text" name="hores" required="required"  /><br/>
-				<label>Data inici:</label>
-				<input type="text" name="di" required="required"/><br/>
-				<label>Data final:</label>
-				<input type="text" name="df" required="required"/><br/>
-				<label>Horari:</label>
-				<input type="text" name="horari" required="required"/><br/>
-				<label>Torn</label>
-				<input type="text" name="torn" required="required"/><br/>
-				<label>Tipus</label>
-				<input type="text" name="tipus" required="required"/><br/>
-				<label>Requisits</label>
-				<input type="text" name="requisits" required="required"/><br/>
-				<a class="botoncin" href="<?php echo base_url()?>/index.php/cursos/llistar">Enrere</a>
-				<input class="botoncin" type="submit" name="nou" value="Guardar"/><br/>
-				
+				<div class="flexi">
+					<div class="flex">
+						<label>Nom del curs:</label>
+						<input type="text" name="nom" required="required"/><br/>
+						<label>Codi:</label>
+						<input type="text" name="codi" required="required"/><br/>
+						
+						<label>Hores:</label>
+						<input type="text" name="hores" maxlength="6" required="required"  /><br/>
+						<label>Data inici:</label>
+						<input type="text" name="di" placeholder="aaaa/mm/dd" maxlength="10" required="required"/><br/>
+						<label>Data final:</label>
+						<input type="text" name="df" placeholder="aaaa/mm/dd" maxlength="10" required="required"/><br/>
+						<label>Horari:</label>
+						<input type="text" name="horari" required="required"/><br/>
+						<label>Tipus</label>
+						<input type="text" name="tipus" required="required"/><br/>
+						
+					</div>
+					<div class="flex">
+						<label>Descripcio:</label>
+						<textarea rows="5" name="desc" required="required" cols="25" placeholder="Escriu la descripció" title=" Maximo 240 caracteres" maxlength="240"></textarea><br/>
+						<br/>
+						<label>Requisits:</label>
+						<textarea rows="5" name="requisits" required="required" cols="25" title=" Maximo 240 caracteres" placeholder="Escriu els requisits" maxlength="240"></textarea><br/>
+					</div>
+					<div class="flex">
+					<br/><br/><br/><br/>
+					<label>Area especialitat</label>
+						<select name="ida" required="required">
+							<option value="">Selecciona</option>
+							<?php foreach ($arees as $p=>$v)
+									echo "
+									<option value='$v->id'>$v->nom</option>
+							";?>
+		
+						</select><br/><br/>
+						<label>Torn</label>
+						<select name="torn" required="required">
+							<option value="">Selecciona</option>
+							<option value="M">M</option>
+							<option value="T">T</option>
+						</select><br/>
+						
+					</div>
+				</div><br/><br/>
+					<a class="botoncin bo1" href="<?php echo base_url()?>/index.php/cursos/llistar">Enrere</a>
+					<input class="botoncin bo3" type="submit" name="nou" value="Guardar"/><br/>
 			</form>
 			</div>
 		</div>

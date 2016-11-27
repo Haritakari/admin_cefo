@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else{
 				if (!$curso->borrar())
-					show_error('No es pot esborrar',165,'Error al esborrar');
+					show_error('No es pot esborrar',404,'Error al esborrar');
 				
 				$data['usuario']=Login::getUsuario();
 				$data['mensaje']='Curs esborrat correctament';
@@ -52,9 +52,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		public function crear(){
 			//si no han pitjat el boto enviar mostrem el formulari
-			$pedo=$this->input->post('nou');
-			if (empty($pedo)){
-				
+			$this->load->model('AreesModel');
+			$crea=$this->input->post('nou');
+			if (empty($crea)){
+				$arees=new AreesModel();
+				$data['arees']=$arees->llistar();
 				$data['usuario']=Login::getUsuario();
 				$this->load->view('templates/header', $data);
 				$this->load->view('cursos/nou', $data);
@@ -74,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$curs->tipus=$this->input->post('tipus');
 			$curs->requisits=$this->input->post('requisits');
 			if(!$curs->guardar())
-				show_error('error al guardar el curs',206,'Error al guardar');		
+				show_error('error al guardar el curs',404,'Error al guardar');		
 
 			self::llistar($p=1,$f=10);
 			}
@@ -105,7 +107,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$curs->tipus=$this->input->post('tipus');
 				$curs->requisits=$this->input->post('requisits');
 				if(!$curs->actualitzar())
-					show_error('error al modificar el curs',207,'Error al modificar');
+					show_error('error al modificar el curs',404,'Error al modificar');
 		
 					self::llistar($p=1,$f=10);
 			}

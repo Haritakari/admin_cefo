@@ -9,9 +9,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		public function guardar(){
 			
-			$consulta = "INSERT INTO (nom,codi,id_area,descripcio,hores,data_inici,data_fi,horari,torn,requisits)
+			$consulta = "INSERT INTO cursos(nom,codi,id_area,descripcio,hores,data_inici,data_fi,horari,torn,tipus,requisits)
 			VALUES ('$this->nom','$this->codi','$this->id_area','$this->descripcio','$this->hores',
-			'$this->data_inici','$this->data_fi','$this->horari','$this->torn','$this->requisits');";
+			'$this->data_inici','$this->data_fi','$this->horari','$this->torn','$this->tipus','$this->requisits');";
 				
 			return $this->db->query($consulta);
 		}
@@ -45,7 +45,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			$princ=$p;
 			$princ2=($princ-1)*$fin;
-			$consulta="SELECT *	FROM cursos LIMIT $princ2,$fin";
+			$consulta="Select u.id,u.codi,u.id_area,u.nom,u.descripcio,u.hores,u.data_inici,u.data_fi,u.horari,u.torn,u.tipus,u.requisits,a.nom as area
+			From cursos u right join  arees_formatives a on u.id_area = a.id LIMIT $princ2,$fin";
 			$query=$this->db->query($consulta);
 			$lista=$query->custom_result_object('CursModel');
 			return $lista;
@@ -60,7 +61,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query = $this->db->get_where('cursos',array('id' => $id));
 			return $query->custom_result_object('CursModel');
 		}
-		
+		public function veriArea($idarea){
+			$consulta="Select id from cursos where id_area=$idarea";
+			return $this->db->query($consulta)->num_rows();
+		}
 		
 		
 	}

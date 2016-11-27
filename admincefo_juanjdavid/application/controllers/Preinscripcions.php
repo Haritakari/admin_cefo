@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				//guardar el usuario en BDD
 				if(!$p->guardarP())
-					show_error('No ha pogut enregistrar la Preinscripció',289,'Error en el registre');
+					show_error('No ha pogut enregistrar la Preinscripció',404,'Error en el registre');
 				
 				//mostrar la vista de éxito
 				$data['usuario'] = Login::getUsuario();
@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if(!empty($_POST['confirmar'])){	
 				//carga el formulario de confirmación
 				if(!$p->borrar())
-					show_error('No es pot procesa la baixa',257,'Error al intentar donar de baixa');
+					show_error('No es pot procesa la baixa',404,'Error al intentar donar de baixa');
 				//mostrar la vista de éxito
 				$data['usuario'] = $usua;
 				$data['mensaje'] = 'Eliminat OK';
@@ -108,7 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else{
 				if(!$p->borrarPAC())
-					show_error('No es pot eliminar aquesta preinscripcio',257,'Error al intentar eliminar');
+					show_error('No es pot eliminar aquesta preinscripcio',404,'Error al intentar eliminar');
 					//mostrar la vista de éxito
 
 					$data['usuario'] = Login::getUsuario();

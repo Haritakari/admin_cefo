@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$area->nom = $this->input->post("nom");
 				//modificar el area en BDD
 				if(!$area->actualitzar())
-					show_error('No es pot modificar',159,'Error en la modificacio');
+					show_error('No es pot modificar',404,'Error en la modificacio');
 			$data['area']=$area;
 			$data['usuario']=Login::getUsuario();
 			$data['mensaje']='Area modificada correctament';
@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$area->nom = $this->input->post("nom");
 				//modificar el area en BDD
 				if(!$area->guardar())
-					show_error('No es pot crear aquesta area formativa',162,'Error al crear');
+					show_error('No es pot crear aquesta area formativa',404,'Error al crear');
 		
 					
 					$data['usuario']=Login::getUsuario();
@@ -77,10 +77,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$area->id=$id;
 			$area=$area->getArea();
 			$area=$area[0];
+			$this->load->model('CursModel');
 			
 			//si no llegan los datos a modificar
 			if(empty($_POST['delete'])){
 				//mostramos la vista del formulario
+				$vericurs=new CursModel();
+				//verificamos que ningun curso tiene este area asignada
+				$vericurs=$vericurs->veriArea($id);
+				if($vericurs>=1){
+					$mess='No pots borrar un area que estigui vinculada a un cus';
+					$stat=404;
+					$head='Error al borrar';
+					show_error($mess,$stat,$head);
+				}
+
 				$data['area']=$area;
 				$data['usuario'] =Login::getUsuario();
 				$this->load->view('templates/header', $data);
@@ -90,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else{
 				//borrar el area en BDD
 				if(!$area->borrar())
-					show_error('No es pot borrar aquesta area formativa',163,'Error al borrar');
+					show_error('No es pot borrar aquesta area formativa',404,'Error al borrar');
 					
 					$arees=new AreesModel();
 					$arees=$arees->llistar();

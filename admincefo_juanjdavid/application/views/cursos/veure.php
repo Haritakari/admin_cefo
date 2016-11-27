@@ -28,7 +28,7 @@
 						<tr onclick='myUrl($item->id);'>
 							<td>$item->codi</td>
 							<td>$item->nom</td>
-							<td>$item->id_area</td>
+							<td>$item->area</td>
 							<td>$item->descripcio</td>
 							<td>$item->hores</td>
 							<td>$item->data_inici</td>
