@@ -2,7 +2,7 @@
 
 
 
-		<div>
+		<div class="rel">
 			<h2>Cursos ofertats </h2>
 			<table class="most">
 				<tr>
@@ -21,11 +21,11 @@
 				echo $curs->nom;
 				echo $missatge[0]; 
 			}
-			echo "<a class='bo3 botoncin' href='".base_url()."index.php/cursos/crear'>Insertar nou Curs</a>";
+			echo "<br/><a class='bo3 botoncin' href='".base_url()."index.php/cursos/crear'>Insertar nou Curs</a><br/><br/><br/>";
 				foreach ($cursos as $pro=>$item){
-					
+					if($item->nom)
 					echo "
-						<tr onclick='myUrl($item->id);'>
+						<tr class='point' onclick='myUrl($item->id);'>
 							<td>$item->codi</td>
 							<td>$item->nom</td>
 							<td>$item->area</td>
@@ -38,12 +38,12 @@
 						</tr></a>";
 				}?></table>
 				 <?php if($p>=2){?>
-						<a  href="<?php echo base_url()?>index.php/cursos/llistar/<?php echo $p-1 ?>"><figure class="pagpeque"><img src="<?php echo base_url()?>/images/left.png" alt="flecha izquierda" /></figure></a>
+						<a  href="<?php echo base_url()?>index.php/cursos/llistar/<?php echo $p-1 ?>"><figure class="pagpeque"><img class="i" src="<?php echo base_url()?>/images/left.png" alt="flecha izquierda" /></figure></a>
 			<?php }if($p<$numpag){?>
-						<a  href="<?php echo base_url()?>index.php/cursos/llistar/<?php echo $p+1 ?>"><figure class="pagpeque"><img src="<?php echo base_url()?>/images/right.png" alt="flecha derecha" /></figure></a>
+						<a  href="<?php echo base_url()?>index.php/cursos/llistar/<?php echo $p+1 ?>"><figure class="pagpeque"><img class="d" src="<?php echo base_url()?>/images/right.png" alt="flecha derecha" /></figure></a>
 			<?php }	
-								
-				echo "<br/><br/><span id='pagin'> Pagina $p de $numpag</span>";
+			
+				echo "<span id='pagin'> Pagina $p de $numpag</span>";
 			?>
 			
 					

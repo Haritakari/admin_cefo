@@ -30,7 +30,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							  data_fi='$this->data_fi',
 							  horari='$this->horari',
 							  torn='$this->torn',
-							  requisits='$this->requisits'
+							  requisits='$this->requisits',
+							  tipus='$this->tipus'
 							  WHERE id='$this->id';";
 			return $this->db->query($consulta);
 		}

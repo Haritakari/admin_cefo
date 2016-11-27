@@ -9,7 +9,7 @@
 		<label class="det">Data de inici del curs:</label><span>	<?php echo $curso[0]->data_inici;?></span><br/>
 		<label class="det">Data fi del curs:</label>	<span><?php echo $curso[0]->data_fi;?></span><br/>
 		<label class="det">Quin horari tindra:</label><span>	<?php echo $curso[0]->horari;?></span><br/>
-		<label class="det">Mati o tarda?:</label><span>	<?php echo $curso[0]->torn;?></span><br/>
+		<label class="det">Mati o tarda :</label><span>	<?php echo $curso[0]->torn;?></span><br/>
 		<label class="det">Quina graduació te:</label><span>	<?php echo $curso[0]->tipus;?></span><br/>
 		<label class="det">requisits per poder accedir:</label>	<span><?php echo $curso[0]->requisits;?></span><br/>
 		<label class="det">Descripció del curs:</label><span>	<?php echo $curso[0]->descripcio;?></span><br/>

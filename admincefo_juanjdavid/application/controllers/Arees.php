@@ -12,14 +12,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function llistar(){
 			$arees=new AreesModel();
 			$arees=$arees->llistar();
-	
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
 			$data['arees']=$arees;
-			$data['usuario']=Login::getUsuario();
+			$data['usuario']=$usuario;
 			$this->load->view('templates/header', $data);
 			$this->load->view('arees/veure', $data);
 			$this->load->view('templates/footer', $data);
 		}
 		public function modificar($id){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
 			$area=new AreesModel();
 			$area->id=$id;
 			$area=$area->getArea();
@@ -28,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			if(empty($_POST['modificar'])){
 				//mostramos la vista del formulario
 				$data['area']=$area;
-				$data['usuario'] =Login::getUsuario();
+				$data['usuario'] =$usuario;
 				$this->load->view('templates/header', $data);
 				$this->load->view('arees/modificar', $data);
 				$this->load->view('templates/footer', $data);	
@@ -48,10 +53,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 		public function crear(){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
 			//si no llegan los datos a modificar
 			if(empty($_POST['crear'])){	
 				//mostramos la vista del formulario
-				$data['usuario'] =Login::getUsuario();
+				
+				$data['usuario'] =$usuario;
 				$this->load->view('templates/header', $data);
 				$this->load->view('arees/novarea', $data);
 				$this->load->view('templates/footer', $data);
@@ -64,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					show_error('No es pot crear aquesta area formativa',404,'Error al crear');
 		
 					
-					$data['usuario']=Login::getUsuario();
+					$data['usuario']=$usuario;
 					$data['mensaje']='Area creada correctament';
 					$this->load->view('templates/header', $data);
 					$this->load->view('arees/novarea', $data);
@@ -73,6 +82,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 		public function borrar($id){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
 			$area=new AreesModel();
 			$area->id=$id;
 			$area=$area->getArea();
@@ -93,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				}
 
 				$data['area']=$area;
-				$data['usuario'] =Login::getUsuario();
+				$data['usuario'] =$usuario;
 				$this->load->view('templates/header', $data);
 				$this->load->view('arees/borrar', $data);
 				$this->load->view('templates/footer', $data);
@@ -107,7 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$arees=$arees->llistar();
 					
 					$data['arees']=$arees;
-					$data['usuario']=Login::getUsuario();
+					$data['usuario']=$usuario;
 					$data['mensaje']='Area borrada correctament';
 					$this->load->view('templates/header', $data);
 					$this->load->view('result/exit3', $data);

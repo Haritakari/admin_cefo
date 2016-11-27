@@ -8,6 +8,7 @@
 		public function __construct(){
 			$CI =& get_instance();
 			$CI->load->library('session');
+			$CI->load->helper('security');
 		}
 		//devuelve el usuario que está identificado en el sistema
 		public static function getUsuario(){
@@ -25,8 +26,8 @@
 		public static function comprobar(){
 			//si piden hacer login, hacemos login
 			if(!empty($_POST['login'])){
-				$u = $_POST['user'];
-				$p = ($_POST['password']);
+				$u = xss_clean($_POST['user']);
+				$p = xss_clean($_POST['password']);
 				self::log_in($u,$p);
 			}
 			

@@ -16,7 +16,7 @@
 				foreach ($arees as $pro=>$item){
 					
 					echo "
-						<tr onclick='Mrl($item->id)';>
+						<tr>
 							<td>$item->nom</td>
 							
 							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/arees/modificar/$item->id'><img src='".base_url()."/images/mod.png'/></a></td>

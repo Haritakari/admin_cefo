@@ -35,9 +35,18 @@
 
 				<ul class="nav">
 					<li class="unem"><a href="<?php echo base_url()?>index.php">Inici</a></li>
+					<?php 
+					if (!empty($usuario)){
+					if ($usuario->admin){?>
+					
 					<li class="unem"><a href="<?php echo base_url()?>index.php/cursos/llistar">Cursos</a></li>
 					<li class="unem"><a href="<?php echo base_url()?>index.php/usuario/llistar">Alumnes</a></li>
 					<li class="unem"><a href="<?php echo base_url()?>index.php/arees/llistar">Arees formatives</a></li>
+					
+					<?php }}
+						else
+							echo "<li class='sp'>Fes login per accedir a la aplicacio</li>";
+					?>
 				</ul>
 		<?php 	
 		}

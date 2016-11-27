@@ -9,6 +9,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		
 		public function llistar($p=1,$f=10){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
 			$this->load->model('cursModel');
 			$curso=new CursModel();
 			$cursos=$curso->llista($p,$f);
@@ -20,13 +23,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$data['numpag']=$numpag;
 			$data['p']=$p;
 			$data['cursos']=$cursos;
-			$data['usuario']=Login::getUsuario();
+			$data['usuario']=$usuario;
 			$this->load->view('templates/header', $data);
 			$this->load->view('cursos/veure', $data);
 			$this->load->view('templates/footer', $data);
 		}
 		
 		public function borrar($id){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
 			$curso=new CursModel();
 			$curso=$curso->getCurs($id);
 			$curso=$curso[0];
@@ -34,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$pedo=$this->input->post('delete');
 			if (empty($pedo)){
 				$data['curso']=$curso;
-				$data['usuario']=Login::getUsuario();
+				$data['usuario']=$usuario;
 				$this->load->view('templates/header', $data);
 				$this->load->view('cursos/borrar', $data);
 				$this->load->view('templates/footer', $data);
@@ -43,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				if (!$curso->borrar())
 					show_error('No es pot esborrar',404,'Error al esborrar');
 				
-				$data['usuario']=Login::getUsuario();
+				$data['usuario']=$usuario;
 				$data['mensaje']='Curs esborrat correctament';
 				$this->load->view('templates/header', $data);
 				$this->load->view('result/exit', $data);
@@ -51,13 +57,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 		public function crear(){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
 			//si no han pitjat el boto enviar mostrem el formulari
 			$this->load->model('AreesModel');
 			$crea=$this->input->post('nou');
 			if (empty($crea)){
 				$arees=new AreesModel();
 				$data['arees']=$arees->llistar();
-				$data['usuario']=Login::getUsuario();
+				$data['usuario']=$usuario;
 				$this->load->view('templates/header', $data);
 				$this->load->view('cursos/nou', $data);
 				$this->load->view('templates/footer', $data);
@@ -82,14 +91,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 		public function modificar($id){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
 			//si no han pitjat el boto modificar mostrem el formulari
 			$curs=new CursModel();
 			$curs=$curs->getCurs($id);
 			$curs=$curs[0];
-			$pedo=$this->input->post('modificar');
-			if (empty($pedo)){
+			$this->load->model('AreesModel');
+			$modi=$this->input->post('modificar');
+			if (empty($modi)){
+				$arees=new AreesModel();
+				$data['arees']=$arees->llistar();
 				$data['curs']=$curs;
-				$data['usuario']=Login::getUsuario();
+				$data['usuario']=$usuario;
 				$this->load->view('templates/header', $data);
 				$this->load->view('cursos/modificar', $data);
 				$this->load->view('templates/footer', $data);
@@ -113,6 +128,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 		}
 		public function curs($id){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
 			$this->load->model('preinscripcionsModel');
 			$curso=new CursModel();
 			$curso=$curso->getCurs($id);
@@ -130,7 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			$data['usepreins']=$usepreins;
 			$data['curso']=$curso;
-			$data['usuario']=Login::getUsuario();
+			$data['usuario']=$usuario;
 			$this->load->view('templates/header', $data);
 			$this->load->view('cursos/detall', $data);
 			$this->load->view('templates/footer', $data);

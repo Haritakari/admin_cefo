@@ -8,8 +8,8 @@
 				<span><?php echo $curso->nom;?></span><br/><br/><br/>
 			
 				<label> Al eliminar el curs s'eliminaran totes les subscripcions d'aquest curs</label><br/><br/>
-				<a class="botoncin" href="<?php echo base_url()?>/index.php/cursos/llistar">Enrere</a>
-				<input type="submit" name="delete" value="Confirmar"/><br/>
+				<a class="botoncin bo1" href="<?php echo base_url()?>/index.php/cursos/llistar">Enrere</a>
+				<input class="botoncin bo3" type="submit" name="delete" value="Confirmar"/><br/>
 			</form>
 			</div>
 		</section>
