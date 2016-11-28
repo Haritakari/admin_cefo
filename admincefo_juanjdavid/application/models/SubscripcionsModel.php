@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		
 		
-		//elimina una preinscripción de un Alumno y Area de la BDD
+		
 		public function borrarSAS(){
 			
 			$consulta = "DELETE FROM subscripcions WHERE id_usuari='$this->id_usuari' AND id_area='$this->id_area';";

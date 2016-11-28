@@ -88,7 +88,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('templates/footer', $data);
 			}
 		}
-	public function eliminar($ida){
+		public function eliminarSus($ida,$idu){
+			$u=Login::getUsuario();
+			if(!$u)
+				show_error('Tens que estar identificat',404,'Error , Identificat');
+				$this->load->model('AreesModel');
+				//crear una instancia de Preinscripciones
+				$s = new SubscripcionsModel();
+					
+				$s->id_usuari=$idu;
+				$s->id_area=$ida;
+				if(!$s->borrarSAS())
+					show_error('No es pot eliminar aquesta subscripcio',404,'Error al intentar eliminar');
+					//mostrar la vista de éxito
+					header("Refresh:0; url=".base_url()."/index.php/arees/veurell/$ida");
+		}
+		public function eliminar($ida){
 			$u=Login::getUsuario();
 			if(!$u)
 				show_error('Tens que estar identificat',404,'Error , Identificat');
