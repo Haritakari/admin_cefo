@@ -12,6 +12,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 			return $this->db->query($consulta)->custom_result_object('SubscripcionsModel');
 		}
+		public function getSarea(){
+		
+			$consulta = "SELECT * FROM subscripcions WHERE id_area = '$this->id_area';";
+				
+			return $this->db->query($consulta)->custom_result_object('SubscripcionsModel');
+		}
 		
 		//este método sirve para recuperar una subscripcion de un alumno
 		public function getSubscripcio(){

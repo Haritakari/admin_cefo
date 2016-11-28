@@ -8,11 +8,11 @@
 					<th>Dni</th>
 					<th>1er Cognom</th>
 					<th>2on Cognom</th>
-					<th>Data Naixement</th>
 					<th>Estudis</th>
 					<th>Situacio laboral</th>
 					<th>Prestació</th>
-					<th>email</th>
+					<th></th>
+					<th></th>
 					
 					
 				</tr>
@@ -26,7 +26,7 @@
 							<td>$item->dni</td>
 							<td>$item->cognom1</td>
 							<td>$item->cognom2</td>
-							<td>$item->data_naixement</td>
+							
 							
 							
 							<td>";
@@ -46,7 +46,7 @@
 							if ($item->prestacio==2)echo "No";
 							
 							
-							echo "</td><td>$item->email</td>
+							echo "
 							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/usuario/adminModificar/$item->dni'><img src='".base_url()."/images/mod.png'/></a></td>
 							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/usuario/adminBaja/$item->dni'><img src='".base_url()."/images/borr.png'/></a></td>
 						</tr></a>";

@@ -127,4 +127,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$this->load->view('templates/footer', $data);
 			}
 		}
+		public function veure($id){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
+			$area=new AreesModel();
+			$area->id=$id;
+			$area=$area->getArea();
+			$area=$area[0];
+			$subs=new SubscripcionsModel();
+			$subs->id_area=$id;
+			$subs=$subs->getSarea();
+				$alusubs=array();
+			if(count($subs)>=1){
+				foreach ($subs as $p=>$v){
+					$alumne=new UsuarioModel();
+					$alumne->id=$v->id_usuari;
+					$alumne=$alumne->getUsuario2();
+					$alusubs[]=$alumne[0];
+			
+			
+				$data['alusubs']=$alusubs;
+				$data['area']=$area;
+				$data['usuario']=$usuario;
+				$this->load->view('templates/header', $data);
+				$this->load->view('arees/detall', $data);
+				$this->load->view('templates/footer', $data);
+		}
 	}

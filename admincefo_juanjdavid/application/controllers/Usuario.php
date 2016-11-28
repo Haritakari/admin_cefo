@@ -50,13 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 						//mostrar la vista de éxito
 						
-						$u=$u->getUsuario2();
+						
 						$m='Modificacio realitzada correctament';
-						$data['usuari']=$u[0];
+						
 						$data['usuario'] = $usuario;
 						$data['mensaje']=$m;
 						$fecha=explode("-", $u->data_naixement);
 						$data['fecha']=$fecha;
+						$u=$u->getUsuario2();
+						$data['usuari']=$u[0];
 						$this->load->view('templates/header', $data);
 						$this->load->view('usuario/adminmodifica', $data);
 						$this->load->view('result/exit2', $data);

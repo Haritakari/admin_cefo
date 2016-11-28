@@ -9,10 +9,12 @@
 					<th>Codi</th>
 					<th>Nom</th>
 					<th>Area</th>
-					<th>Descripcio</th>
+					
 					<th>Hores</th>
 					<th>Data Inici</th>
 					<th>Data Fi</th>
+					<th></th>
+					<th></th>
 					
 				</tr>
 				
@@ -29,7 +31,7 @@
 							<td>$item->codi</td>
 							<td>$item->nom</td>
 							<td>$item->area</td>
-							<td>$item->descripcio</td>
+							
 							<td>$item->hores</td>
 							<td>$item->data_inici</td>
 							<td>$item->data_fi</td>

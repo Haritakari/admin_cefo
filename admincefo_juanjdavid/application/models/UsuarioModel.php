@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							  SET nom=$this->nom, 
 							  		cognom1=$this->cognom1, 
 							  		cognom2=$this->cognom2,
-							  		data_naixement=$this->data_naixement, 
+							  		data_naixement='$this->data_naixement', 
 							  		estudis=$this->estudis, 
 							  		dni=$this->dni,
 							  		situacio_laboral=$this->situacio_laboral, 

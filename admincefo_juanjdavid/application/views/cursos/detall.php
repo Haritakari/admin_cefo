@@ -2,17 +2,29 @@
 
 
 
-	<div class="cont">
+<div class="cont">
 			<h2 class="det"><?php echo $curso[0]->nom;?></h2><br/><br/><br/>
-		<label class="det">Codi del curs:</label><span>	<?php echo $curso[0]->codi;?></span><br/>
-		<label class="det">Hores totals</label>	<span><?php echo $curso[0]->hores;?></span><br/>
-		<label class="det">Data de inici del curs:</label><span>	<?php echo $curso[0]->data_inici;?></span><br/>
-		<label class="det">Data fi del curs:</label>	<span><?php echo $curso[0]->data_fi;?></span><br/>
-		<label class="det">Quin horari tindra:</label><span>	<?php echo $curso[0]->horari;?></span><br/>
-		<label class="det">Mati o tarda :</label><span>	<?php echo $curso[0]->torn;?></span><br/>
-		<label class="det">Quina graduació te:</label><span>	<?php echo $curso[0]->tipus;?></span><br/>
-		<label class="det">requisits per poder accedir:</label>	<span><?php echo $curso[0]->requisits;?></span><br/>
-		<label class="det">Descripció del curs:</label><span>	<?php echo $curso[0]->descripcio;?></span><br/>
+		<table >
+			<tr>
+				<td><label class="det">Codi del curs:</label></td><td><?php echo $curso[0]->codi;?></span><br/>
+			</tr><tr>
+				<td><label class="det">Hores totals</label></td><td><?php echo $curso[0]->hores;?></span></td>
+			</tr><tr>
+				<td><label class="det">Data de inici del curs:</label></td><td>	<?php echo $curso[0]->data_inici;?></span></td>
+			</tr><tr>
+				<td><label class="det">Data fi del curs:</label></td><td><?php echo $curso[0]->data_fi;?></span></td>
+			</tr><tr>
+				<td><label class="det">Quin horari tindra:</label></td><td>	<?php echo $curso[0]->horari;?></span></td>
+			</tr><tr>
+				<td><label class="det">Mati o tarda?:</label></td><td><?php echo $curso[0]->torn;?></span></td>
+			</tr><tr>
+				<td><label class="det">Quina graduació te:</label></td><td>	<?php echo $curso[0]->tipus;?></span></td>
+			</tr><tr>
+				<td><label class="det">Requisits per poder accedir:</label></td><td><?php echo $curso[0]->requisits;?></span></td>
+			</tr><tr>
+				<td><label class="det">Descripció del curs:</label></td><td><?php echo $curso[0]->descripcio;?></td>
+			</tr>
+		</table>
 		<a class="botoncin bo1 bot2" href="<?php echo base_url()?>/index.php/cursos/llistar">Tornar a cursos</a>
 		
 		<?php 
@@ -26,29 +38,46 @@
 					<th>Nom</th>
 					<th>Dni</th>
 					<th>1er Cognom</th>
-					<th>2on Cognom</th>
-					<th>Data Naixement</th>
+					
+					
 					<th>Estudis</th>
 					<th>Situacio laboral</th>
+					<th>Telefon fixe</th>
+					<th>Telefon mobil</th>
 					<th>email</th>
+					<th></th>
+					
+					
 			
 				</tr>
 				<?php 
-		foreach ($usepreins as $p=>$item)
+		foreach ($usepreins as $p=>$item){
 			echo "
-						<tr>
+						<tr onclick='myUrl1($item->id);'>
 							<td>$item->nom</td>
 							<td>$item->dni</td>
 							<td>$item->cognom1</td>
-							<td>$item->cognom2</td>
-							<td>$item->data_naixement</td>
-							<td>$item->estudis</td>
-							<td>$item->situacio_laboral</td>
+							
+							
+							<td>";
+							if ($item->estudis==1) echo "Sense estudis";
+							if ($item->estudis==2) echo "EGB o ESO";
+							if ($item->estudis==3) echo "CFGSuperior o Batxillerat";
+							if ($item->estudis==4) echo "Titol Universitari";
+								echo"</td>
+							<td>";
+						    if($item->situacio_laboral==1)echo "Aturat";
+						    if($item->situacio_laboral==2)echo "Actiu";
+						    if($item->situacio_laboral==3)echo "Altres";
+							echo
+							"</td>
+							<td>$item->telefon_fix</td>
+							<td>$item->telefon_mobil</td>
 							<td>$item->email</td>
 							
-							<td><a class='bo3 botoncin' href='".base_url()."index.php/preinscripcions/eliminar/$item->id/".$curso[0]->id."'>Eliminar subscripcio</a></td>
+							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/preinscripcions/eliminar/$item->id/".$curso[0]->id."'><img src='".base_url()."/images/borr.png'/></a></td>
 						</tr></a>";
-			
+			}
 		}
 			?>
 		</table>
