@@ -154,6 +154,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$alusubs[]=$area[0];
 				}
 			}
+			
+			$curso=new CursModel();
+			$cursos=$curso->complet();
+			
+			$are=new AreesModel();
+			$are=$are->llistar();
+			
+			$data['are']=$are;
+			$data['cur']=$cursos;
 			$data['alusubs']=$alusubs;
 			$data['cursos']=$curspreins;
 			$data['alumne']=$alumne;
