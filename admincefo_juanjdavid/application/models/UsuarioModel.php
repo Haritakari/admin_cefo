@@ -14,8 +14,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$user_table = 'usuaris';
 			$consulta = "INSERT INTO $user_table(dni, nom, cognom1, cognom2, data_naixement, estudis, situacio_laboral, prestacio, telefon_mobil,
 			telefon_fix, email, admin)
-			VALUES ('$this->dni','$this->nom','$this->cognom1','$this->cognom2','$this->data_naixement',
-			'$this->estudis','$this->situacio_laboral','$this->prestacio','$this->telefon_mobil','$this->telefon_fix','$this->email',0);";
+			VALUES ($this->dni,$this->nom,$this->cognom1,$this->cognom2,'$this->data_naixement',
+			$this->estudis,$this->situacio_laboral,$this->prestacio,$this->telefon_mobil,$this->telefon_fix,$this->email,0);";
 				
 			return $this->db->query($consulta);
 		}
@@ -25,17 +25,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function actualizar(){
 			$user_table = 'usuaris';
 			$consulta = "UPDATE $user_table
-							  SET nom='$this->nom', 
-							  		cognom1='$this->cognom1', 
-							  		cognom2='$this->cognom2',
-							  		data_naixement='$this->data_naixement', 
-							  		estudis='$this->estudis', 
-							  		dni='$this->dni',
-							  		situacio_laboral='$this->situacio_laboral', 
-							  		prestacio='$this->prestacio', 
-							  		telefon_mobil='$this->telefon_mobil',
-							  		telefon_fix='$this->telefon_fix', 
-							  		email='$this->email'
+							  SET nom=$this->nom, 
+							  		cognom1=$this->cognom1, 
+							  		cognom2=$this->cognom2,
+							  		data_naixement=$this->data_naixement, 
+							  		estudis=$this->estudis, 
+							  		dni=$this->dni,
+							  		situacio_laboral=$this->situacio_laboral, 
+							  		prestacio=$this->prestacio, 
+							  		telefon_mobil=$this->telefon_mobil,
+							  		telefon_fix=$this->telefon_fix, 
+							  		email=$this->email
 							  WHERE id='$this->id';";
 			return $this->db->query($consulta);
 		}

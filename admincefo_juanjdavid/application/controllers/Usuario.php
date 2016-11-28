@@ -3,58 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	class Usuario extends CI_Controller {
 		
-		public function __construct()
-		{
+		public function __construct(){
 			parent::__construct();
 		}
-		//PROCEDIMIENTO PARA REGISTRAR UN USUARIO
-		public function registro(){
-			$usuario=Login::getUsuario();
-			if(!$usuario->admin)
-				redirect(base_url().'index.php');
-			//si no llegan los datos a guardar
-			if(empty($_POST['guardar'])){
-				
-				//mostramos la vista del formulario
-				
-				
-				$this->load->library('templ');
-				$data['usuario']=$usuario;
-				$this->load->view('templates/header', $data);
-				$this->load->view('usuario/registro.php', $data);
-				$this->load->view('templates/footer', $data);
-			
-			//si llegan los datos por POST
-			}else{
-				//crear una instancia de Usuario
-				$u = new UsuarioModel();
-
-				//tomar los datos que vienen por POST
-				
-				$u->nom = $this->input->post("nom");
-				$u->cognom1 =$this->input->post("cognom1");
-				$u->cognom2 = $this->input->post("cognom2");
-				$u->data_naixement =$this->input->post("naix");
-				$u->dni = $this->input->post("dni");
-				$u->estudis = $this->input->post("estudis");
-				$u->situacio_laboral = $this->input->post("sl");
-				$u->prestacio = $this->input->post("prestacio");
-				$u->telefon_mobil = $this->input->post("tmobil");
-				$u->telefon_fix = $this->input->post("tfixe");
-				$u->email = $this->input->post("email");
-
-				//guardar el usuario en BDD
-				if(!$u->guardar())
-					show_error('No ha pogut enregistrar les dades',404,'Error en el registre');
-				
-				//mostrar la vista de éxito
-				$data['usuario'] = $usuario;
-				$data['mensaje'] = 'Operació de registre satisfactoria';
-				$this->load->view('templates/header', $data);
-				$this->load->view('result/exit', $data);
-				$this->load->view('templates/footer', $data);
-			}
-		}
+		
 		public function adminModificar($dni){      //admin modificando datos del alumno
 			$usuario=Login::getUsuario();
 			if(!$usuario->admin)
@@ -80,25 +32,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				}else{
 					//recuperar los datos actuales del usuario
 
-					$u->nom = $this->input->post("nom");
-					$u->cognom1 =$this->input->post("cognom1");
-					$u->cognom2 = $this->input->post("cognom2");
-					$u->data_naixement =$this->input->post("naix").'-'.$this->input->post("naix2").'-'.$this->input->post("naix3");
-					$u->dni = $this->input->post("dni");
-					$u->estudis = $this->input->post("estudis");
-					$u->situacio_laboral = $this->input->post("sl");
-					$u->prestacio = $this->input->post("prestacio");
-					$u->telefon_mobil = $this->input->post("tmobil");
-					$u->telefon_fix = $this->input->post("tfixe");
-					$u->email = $this->input->post("email");
+					$u->nom = $this->db->escape($this->input->post("nom"));
+					$u->cognom1 =$this->db->escape($this->input->post("cognom1"));
+					$u->cognom2 = $this->db->escape($this->input->post("cognom2"));
+					$u->data_naixement =intval($this->input->post("naix")).'-'.intval($this->input->post("naix2")).'-'.intval($this->input->post("naix3"));
+					$u->dni = $this->db->escape($this->input->post("dni"));
+					$u->estudis = intval($this->input->post("estudis"));
+					$u->situacio_laboral = intval($this->input->post("sl"));
+					$u->prestacio = intval($this->input->post("prestacio"));
+					$u->telefon_mobil = intval($this->input->post("tmobil"));
+					$u->telefon_fix = intval($this->input->post("tfixe"));
+					$u->email = $this->db->escape($this->input->post("email"));
 
 					//modificar el usuario en BDD
 					if(!$u->actualizar())
 						show_error('No es pot modificar',404,'Error en la modificacio');
 		
 						//mostrar la vista de éxito
+						
+						$u=$u->getUsuario2();
 						$m='Modificacio realitzada correctament';
-						$data['usuari']=$u;
+						$data['usuari']=$u[0];
 						$data['usuario'] = $usuario;
 						$data['mensaje']=$m;
 						$fecha=explode("-", $u->data_naixement);

@@ -73,17 +73,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			}
 			else{
 			$curs= new CursModel();
-			$curs->codi=$this->input->post('codi');
-			$curs->id_area=$this->input->post('ida');
-			$curs->nom=$this->input->post('nom');
-			$curs->descripcio=$this->input->post('desc');
-			$curs->hores=$this->input->post('hores');
+			$curs->codi=$this->db->escape($this->input->post('codi'));
+			$curs->id_area=intval($this->input->post('ida'));
+			$curs->nom=$this->db->escape($this->input->post('nom'));
+			$curs->descripcio=$this->db->escape($this->input->post('desc'));
+			$curs->hores=intval($this->input->post('hores'));
 			$curs->data_inici=$this->input->post('di');
 			$curs->data_fi=$this->input->post('df');
-			$curs->horari=$this->input->post('horari');
-			$curs->torn=$this->input->post('torn');
-			$curs->tipus=$this->input->post('tipus');
-			$curs->requisits=$this->input->post('requisits');
+			$curs->horari=$this->db->escape($this->input->post('horari'));
+			$curs->torn=$this->db->escape($this->input->post('torn'));
+			$curs->tipus=$this->db->escape($this->input->post('tipus'));
+			$curs->requisits=$this->db->escape($this->input->post('requisits'));
 			if(!$curs->guardar())
 				show_error('error al guardar el curs',404,'Error al guardar');		
 
@@ -110,17 +110,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('templates/footer', $data);
 			}
 			else{
-				$curs->codi=$this->input->post('codi');
-				$curs->id_area=$this->input->post('ida');
-				$curs->nom=$this->input->post('nom');
-				$curs->descripcio=$this->input->post('desc');
-				$curs->hores=$this->input->post('hores');
+				$curs->codi=$this->db->escape($this->input->post('codi'));
+				$curs->id_area=intval($this->input->post('ida'));
+				$curs->nom=$this->db->escape($this->input->post('nom'));
+				$curs->descripcio=$this->db->escape($this->input->post('desc'));
+				$curs->hores=intval($this->input->post('hores'));
 				$curs->data_inici=$this->input->post('di');
 				$curs->data_fi=$this->input->post('df');
-				$curs->horari=$this->input->post('horari');
-				$curs->torn=$this->input->post('torn');
-				$curs->tipus=$this->input->post('tipus');
-				$curs->requisits=$this->input->post('requisits');
+				$curs->horari=$this->db->escape($this->input->post('horari'));
+				$curs->torn=$this->db->escape($this->input->post('torn'));
+				$curs->tipus=$this->db->escape($this->input->post('tipus'));
+				$curs->requisits=$this->db->escape($this->input->post('requisits'));
 				if(!$curs->actualitzar())
 					show_error('error al modificar el curs',404,'Error al modificar');
 		

@@ -10,8 +10,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function guardar(){
 			
 			$consulta = "INSERT INTO cursos(nom,codi,id_area,descripcio,hores,data_inici,data_fi,horari,torn,tipus,requisits)
-			VALUES ('$this->nom','$this->codi','$this->id_area','$this->descripcio','$this->hores',
-			'$this->data_inici','$this->data_fi','$this->horari','$this->torn','$this->tipus','$this->requisits');";
+			VALUES ($this->nom,$this->codi,$this->id_area,$this->descripcio,$this->hores,
+			'$this->data_inici','$this->data_fi',$this->horari,$this->torn,$this->tipus,$this->requisits);";
 				
 			return $this->db->query($consulta);
 		}
@@ -21,17 +21,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		public function actualitzar(){
 			
 			$consulta = "UPDATE cursos
-							  SET nom='$this->nom', 
-							  codi='$this->codi',
-							  id_area='$this->id_area',
-							  descripcio='$this->descripcio',
-							  hores='$this->hores',
+							  SET nom=$this->nom, 
+							  codi=$this->codi,
+							  id_area=$this->id_area,
+							  descripcio=$this->descripcio,
+							  hores=$this->hores,
 							  data_inici='$this->data_inici',
 							  data_fi='$this->data_fi',
-							  horari='$this->horari',
-							  torn='$this->torn',
-							  requisits='$this->requisits',
-							  tipus='$this->tipus'
+							  horari=$this->horari,
+							  torn=$this->torn,
+							  requisits=$this->requisits,
+							  tipus=$this->tipus
 							  WHERE id='$this->id';";
 			return $this->db->query($consulta);
 		}
