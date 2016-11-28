@@ -21,7 +21,7 @@
 		<label class="det">Telefon mobil:</label><span>	<?php echo $alumne[0]->telefon_mobil;?></span><br/>
 		<label class="det">Telefon fixe:</label><span>	<?php echo $alumne[0]->telefon_fix;?></span><br/>
 		<label class="det">Email:</label>	<span><?php echo $alumne[0]->email;?></span><br/>
-		<a class="botoncin bo1 bot2" href="<?php echo base_url()?>/index.php/usuario/llistar">Tornar a llistat alumnes</a>
+		<a class="botoncin bo1 bot2" onclick='window.history.back()'>Tornar enrere</a>
 	</div>
 	<?php 
 		if (count($cursos)>=1){?>
@@ -43,7 +43,7 @@
 			<?php 
 				foreach ($cursos as $pro=>$item){
 					echo "
-						<tr>
+						<tr class='point' onclick='myUrl($item->id);'>
 							<td>$item->codi</td>
 							<td>$item->nom</td>
 							<td>$item->area</td>
@@ -55,7 +55,7 @@
 							<td> <a href='".base_url()."/index.php/preinscripcions/eliminar/".$alumne[0]->id."/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
 						</tr>";
 				}
-				echo "</table><a class='botoncin bo1' href='".base_url()."/index.php/usuario/llistar'>Tornar a llistat alumnes</a>";
+				echo "</table><a class='botoncin bo1' onclick='window.history.back()'>Tornar enrere</a>";
 	}?>
 	</div>
 	<?php 
@@ -74,14 +74,14 @@
 				foreach ($alusubs as $pro=>$item){
 					
 					echo "
-						<tr>
+						<tr class='point' onclick='Mrl2($item->id);'>
 							<td>$item->nom</td>
 							
 							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/subscripcions/eliminar/".$alumne[0]->id."/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
 						</tr></a>";
 				}?>
 		</table>
-			<a class="botoncin bo1" href="<?php echo base_url()?>/index.php/usuario/llistar">Tornar a llistat alumnes</a>
+			<a class="botoncin bo1" onclick='window.history.back()'>Tornar enrere</a>
 		<?php }?>
 		
 	</div>

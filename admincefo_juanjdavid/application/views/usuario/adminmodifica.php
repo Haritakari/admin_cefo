@@ -56,7 +56,7 @@
 			</div>
 				
 				
-				<a class="botoncin bo1" href='<?php echo base_url()?>/index.php/usuario/llistar'>Enrere</a>
+				<a class="botoncin bo1" onclick='window.history.back()'>Tornar enrere</a>
 				<input class="botoncin bo3" type="submit" name="modificar" value="Guardar"/>
 				<br/>
 			</form>

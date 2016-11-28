@@ -63,7 +63,7 @@
 		}
 			?>
 		</table>
-		
+		<a class="botoncin bo1" onclick='window.history.back()'>Tornar enrere</a>
 	</div>
 </div>
 </section>
