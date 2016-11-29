@@ -22,7 +22,7 @@
 				<label></label>
 				<input class="col" type="text" value="<?php echo $fecha[0] ?>" name="naix" pattern="[1-2][0-9][0-9][0-9]{1}" required="required" maxlength="4" placeholder="any" title="any"/><br/>
 				
-				<label>DNI:</label>
+				<label>DNI o NIE:</label>
 				<input type="text" name="dni" maxlength="9" value="<?php echo $usuari->dni ?>" pattern="[XYZ0-9][0-9]{7}[A-Z]" required="required" title="DNI o NIE"/><br/>
 				<label>Email:</label>
 				<input type="email" name="email" value="<?php echo $usuari->email ?>" required="required" title="Correu Electronic"/><br/>
