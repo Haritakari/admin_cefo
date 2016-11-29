@@ -92,7 +92,7 @@ li.unem{
 .content2{
 	padding-top:20px;
 	padding-bottom:40px;
-	margin-top:-20px;
+	margin-top:-60px;
 	margin-bottom: 100px;
 	background-color: #b9efdd;
 	box-shadow:5px 5px 5px #848484;
@@ -100,7 +100,7 @@ li.unem{
 .content3{
 	padding-top:20px;
 	padding-bottom:40px;
-	margin-top:50px;
+	margin-top:-60px;
 	margin-bottom:100px;
 	background-color: #b9efdd;
 	box-shadow:5px 5px 5px #848484;
@@ -296,7 +296,12 @@ h2.det{
 .bo3{
 	background-color: #F4F5AE;
 }
-.bo5{}
+.bo6{
+	background-color:#F5A9F2;
+}
+.bo6:hover{
+	background-color:#E3E57B;
+}
 .bo3:hover{
 	background-color: #E3E57B;
 }
