@@ -348,6 +348,22 @@ h2.det{
 
 @media print { 
  /* All your print styles go here */
- header, footer, .menu, .botoncin, .bot2, .bo3, .bo6 { display: none; }
-  
+ header, footer, img, .menu, .botoncin, .bot2, .bo3, .bo6 { display: none; }
+ .content,.content2,.content3,.cont,.cont2{box-shadow:0px 0px 0px white;}
+
+ .cont{
+ margin-left:-50px;
+ margin-top:-10px;
+ }
+ .content{
+ margin-top:-10px;
+ }
+  .det{
+ 	width:150px;
+ }.content2{
+ margin-top:-100px;
+ }
+ body{
+ 	width:100%;
+ }
 }
