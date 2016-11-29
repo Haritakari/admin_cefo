@@ -89,7 +89,52 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 			header("Refresh:0; url=http://localhost/admincefo_juanjdavid/index.php/usuario/alumne/$ida");
 		}
+		public function eliminar2($idu,$idc){
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
+				$this->load->model('CursModel');
+				//crear una instancia de Preinscripciones
+				$p = new PreinscripcionsModel();
+				$p->id_usuari=$idu;
+				$p->id_curs=$idc;
+				//mostrar vista en cas de no rebre per post
+				$confirm=$this->input->post('delete');
+				if(empty($confirm)){
+					$data['id']=$idc;
+					$data['preins'] = $p;
+					$data['usuario'] = $usuario;
+					$this->load->view('templates/header', $data);
+					$this->load->view('preinscripcions/borrar', $data);
+					$this->load->view('templates/footer', $data);
+				}
+				else{
+					if(!$p->borrarPAC())
+						show_error('No es pot eliminar aquesta preinscripcio',404,'Error al intentar eliminar');
+						//mostrar la vista de éxito
 		
+					$curso=new CursModel();
+					$curso=$curso->getCurs($idc);
+					$prei=new PreinscripcionsModel();
+					$prei->id_curs=$idc;
+					$preins=$prei->getPreinscripcionsC();
+					$usepreins=array();
+					if(count($preins)>=1){
+						foreach ($preins as $p=>$v){
+							$user= new UsuarioModel();
+							$user->id=$v->id_usuari;
+							$user=$user->getUsuario2();
+							$usepreins[]=$user[0];
+						}
+					}
+					$data['usepreins']=$usepreins;
+					$data['curso']=$curso;
+					$data['usuario']=$usuario;
+					$this->load->view('templates/header', $data);
+					$this->load->view('cursos/detall', $data);
+					$this->load->view('templates/footer', $data);
+				}
+		}
 		public function eliminar($idu,$idc){
 			$usuario=Login::getUsuario();
 			if(!$usuario->admin)

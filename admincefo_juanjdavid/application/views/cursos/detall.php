@@ -70,7 +70,7 @@
 							<td>$item->telefon_mobil</td>
 							<td>$item->email</td>
 							
-							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/preinscripcions/eliminar/$item->id/".$curso[0]->id."'><img src='".base_url()."/images/borr.png'/></a></td>
+							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/preinscripcions/eliminar2/$item->id/".$curso[0]->id."'><img src='".base_url()."/images/borr.png'/></a></td>
 						</tr></a>";
 			}
 		}
