@@ -1,27 +1,6 @@
 <?php		
-class XML{	
-	//método que valida con DTD
-    public static function validateWithDTD($fichero){
-    	$dom = new DOMDocument();
-    	$dom->load($fichero, LIBXML_DTDLOAD);
-    	return $dom->validate();
-    }
-    
-    //método que valida con XMLSchema
-    public static function validateWithSchema($fichero, $esquema){
-    	$dom = new DOMDocument();
-    	$dom->load($fichero);
-    	return $dom->schemaValidate($esquema);
-    }
-    
-    //método que convierte un array de objetos en un XML
-    //RECIBE: 
-    // - $l: lista de objetos
-    // - $root: nombre para la etiqueta del elemento raíz (opcional)
-    // - $namespace: namespace (opcional)
-    // - $n: nombre para la etiqueta de cada elemento de la lista,
-    // 	 si no se indica usa el nombre de la clase del elemento.
-    //DEVUELVE: un String con el XML resultante.
+class XML_library{	
+	
     public static function toXML($l, $root='root', $ns='http://ej.org/xml', $n=''){
     	//creación del DOMDocument
     	$xml = new DOMDocument("1.0", "utf-8");

@@ -56,11 +56,7 @@
 			?>
 			<footer>
 					<br/>
-<<<<<<< HEAD
-					<span><a href="cefo@......com "></a>cefo@.....com</span><span> Aquesta pagina es un projecte academic de  : </span> <span> David Sanchez y Juanjo guardiola</span>
-=======
 					<span><a href="cefo@......com "></a>cefo@.....com</span><span> Aquesta pagina es un projecte academic de  : </span> <span> David Sánchez y Juanjo Guardiola</span>
->>>>>>> branch 'master' of https://github.com/Haritakari/admin_cefo.git
 			</footer>
 
   </body>

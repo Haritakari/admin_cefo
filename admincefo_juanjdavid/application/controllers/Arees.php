@@ -148,6 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$alusubs[]=$alumne[0];
 				}
 			}
+
 			
 				$data['alusubs']=$alusubs;
 				$data['area']=$area;

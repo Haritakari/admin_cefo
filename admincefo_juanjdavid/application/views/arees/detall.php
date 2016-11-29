@@ -62,8 +62,12 @@
 			}
 		}
 			?>
-		</table>
+		</table><br><br>
 		<a class="botoncin bo1" onclick='window.history.back()'>Tornar enrere</a>
+		<?php if(!empty($alusubs))
+			if (count($alusubs)>=1){?>
+			<a href='<?php echo base_url()?>index.php/subscripcions/xml/<?php echo $area->id?>' class="botoncin bo3"> Descargar en XML</a>
+		<?php }?>
 	</div>
 </div>
 </section>

@@ -199,5 +199,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$this->load->view('usuario/detall', $data);
 			$this->load->view('templates/footer', $data);
 		}
+		public function xml($id){
+			$this->load->library('xml_library');
+			$usuario=Login::getUsuario();
+			if(!$usuario->admin)
+				redirect(base_url().'index.php');
+				$this->load->model('AreesModel');
+				$area=new AreesModel();
+				$area->id=$id;
+				$area=$area->getArea();
+				$area=$area[0];
+				$subs=new SubscripcionsModel();
+				$subs->id_area=$id;
+				$subs=$subs->getSarea();
+				$alusubs=array();
+				if(count($subs)>=1){
+					foreach ($subs as $p=>$v){
+						$alumne=new UsuarioModel();
+						$alumne->id=$v->id_usuari;
+						$alumne=$alumne->getUsuario2();
+						$alusubs[]=$alumne[0];
+					}
+				}
+				$alusubs= array_unshift($alusubs,$area);
+				$data['alusubs']=$alusubs;
+				
+				$this->load->view('xml/listaxml', $data);
+			
+		}
 	}
 ?>
