@@ -15,9 +15,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 			return $this->db->query($consulta);
 		}
-		
-		
-		
 		public function actualitzar(){
 			
 			$consulta = "UPDATE cursos
@@ -35,9 +32,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							  WHERE id='$this->id';";
 			return $this->db->query($consulta);
 		}
-		
-		
-		
 		public function borrar(){
 			$consulta = "DELETE FROM cursos WHERE id='$this->id';";
 			return $this->db->query($consulta);
@@ -51,6 +45,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$query=$this->db->query($consulta);
 			$lista=$query->custom_result_object('CursModel');
 			return $lista;
+		}
+		public function complet(){
+			$consulta="SELECT *	FROM cursos";
+			return $this->db->query($consulta)->custom_result_object('CursModel');	
 		}
 		public function calc_query(){
 			$consulta="SELECT *	FROM cursos";

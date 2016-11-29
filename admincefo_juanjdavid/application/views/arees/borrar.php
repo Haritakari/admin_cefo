@@ -9,7 +9,7 @@
 			
 				<label> Asegurat que ningun curs tingui aquesta area formativa 
 				avanç de eliminarla</label><br/><br/>
-				<a class="botoncin bo1" href="<?php echo base_url()?>/index.php/arees/llistar">Enrere</a>
+				<a class="botoncin bo1" onclick='window.history.back()'>Tornar enrere</a>
 				<input class="botoncin bo3" type="submit" name="delete" value="Confirmar"/><br/>
 			</form>
 			</div>

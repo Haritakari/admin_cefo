@@ -127,10 +127,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$this->load->view('templates/footer', $data);
 			}
 		}
-		public function veure($id){
+		public function veurell($id){
 			$usuario=Login::getUsuario();
 			if(!$usuario->admin)
 				redirect(base_url().'index.php');
+			$this->load->model('subscripcionsModel');
 			$area=new AreesModel();
 			$area->id=$id;
 			$area=$area->getArea();
@@ -145,7 +146,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$alumne->id=$v->id_usuari;
 					$alumne=$alumne->getUsuario2();
 					$alusubs[]=$alumne[0];
-			
+				}
+			}
 			
 				$data['alusubs']=$alusubs;
 				$data['area']=$area;

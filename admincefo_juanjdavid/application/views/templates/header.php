@@ -17,7 +17,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<span>VALLES</span><br/>
 					<span>ADMINISTRADOR</span>
 		</div>
-	</div>
        
         <?php 
 		if(!$usuario) Templ::login();

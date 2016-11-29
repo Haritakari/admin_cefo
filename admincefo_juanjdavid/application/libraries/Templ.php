@@ -42,6 +42,13 @@
 					<li class="unem"><a href="<?php echo base_url()?>index.php/cursos/llistar">Cursos</a></li>
 					<li class="unem"><a href="<?php echo base_url()?>index.php/usuario/llistar">Alumnes</a></li>
 					<li class="unem"><a href="<?php echo base_url()?>index.php/arees/llistar">Arees formatives</a></li>
+
+					<li class="unem"><a href="">Exportar Cursos a Fitxers XML</a>
+						<ul>
+							<li class="unem"><a href="<?php echo base_url()?>index.php/xml/preinscripcions">Preinscripcions</a></li>
+							<li class="unem"><a href="<?php echo base_url()?>index.php/xml/subscripcions">Subscripcions</a></li>					
+						</ul>
+					</li>
 					
 					<?php }}
 						else
@@ -55,7 +62,7 @@
 			?>
 			<footer>
 					<br/>
-					<span><a href="cefo@......com ">cefo@.....com</span><span> Aquesta pagina es un projecte academic de  : </span> <span> David Sanchez y Juanjo guardiola</a></span>
+					<span><a href="cefo@......com "></a>cefo@.....com</span><span> Aquesta pagina es un projecte academic de  : </span> <span> David Sánchez y Juanjo Guardiola</span>
 			</footer>
 
   </body>

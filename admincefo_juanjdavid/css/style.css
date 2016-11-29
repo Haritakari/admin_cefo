@@ -93,6 +93,7 @@ li.unem{
 	padding-top:20px;
 	padding-bottom:40px;
 	margin-top:-20px;
+	margin-bottom: 100px;
 	background-color: #b9efdd;
 	box-shadow:5px 5px 5px #848484;
 }
@@ -159,7 +160,7 @@ table img{
 	margin-top:90px;
 	display:inline-block;
 	font-size:1.1em;
-	margin-left:20px;
+	margin-left:10px;
 }
 .content, .content2, .cont2,.content3{
 	text-align: center;
@@ -196,7 +197,10 @@ table{
 	margin-top: 50px;
 	margin-bottom: 35px;
 }
-
+.most{
+	margin-left:auto;
+	margin-right:auto;
+}
 .most th{
 	color: white;
 	background-color: #5CBA9C;
@@ -311,9 +315,9 @@ h2.det{
 }
 .bot2{
 	display:inline-block;
-	margin-top:30px;
-	margin-bottom:30px;
-	margin-left:35%;
+	margin-top:45px;
+	margin-bottom:40px;
+	margin-left:40%;
 }
 
 .pagpeque{

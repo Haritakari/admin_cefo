@@ -74,7 +74,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('result/exit', $data);
 				$this->load->view('templates/footer', $data);
 		}
+		public function admi(){
+			$idc=$this->input->post('pre');
+			$ida=$this->input->post('idp');
+			
+			$pre=new PreinscripcionsModel();
+			$pre->id_curs=$idc;
+			$pre->id_usuari=$ida;
+			if($pre->getPreinscripcio())
+				show_error('No pots preinscriure a un curs al cual ja esta inscrit',404,'error al intentar preinscriure');
+			
+			if(!$pre->guardarP())
+					show_error('No ha pogut enregistrar la Preinscripció',404,'Error en el registre');
 		
+			header("Refresh:0; url=http://localhost/admincefo_juanjdavid/index.php/usuario/alumne/$ida");
+		}
 		
 		public function eliminar($idu,$idc){
 			$usuario=Login::getUsuario();
@@ -140,6 +154,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$alusubs[]=$area[0];
 				}
 			}
+			$curso=new CursModel();
+			$cursos=$curso->complet();
+				
+			$are=new AreesModel();
+			$are=$are->llistar();
+				
+			$data['are']=$are;
+			$data['cur']=$cursos;
 			$data['alusubs']=$alusubs;
 			$data['cursos']=$curspreins;
 			$data['alumne']=$alumne;

@@ -59,6 +59,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('result/exit', $data);
 				$this->load->view('templates/footer', $data);
 		}
+		public function admi(){
+			$idc=$this->input->post('subs');
+			$ida=$this->input->post('ids');
+				
+			$sub=new SubscripcionsModel();
+			$sub->id_area=$idc;
+			$sub->id_usuari=$ida;
+			if(!$sub->guardarS())
+				show_error('No ha pogut enregistrar la Preinscripció',404,'Error en el registre');
+		
+			header("Refresh:0; url=http://localhost/admincefo_juanjdavid/index.php/usuario/alumne/$ida");
+		
+		}
 		
 		//PROCEDIMIENTO PARA DAR DE BAJA SUBSCRIPCIONES
 		//solicita confirmación
@@ -88,7 +101,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				$this->load->view('templates/footer', $data);
 			}
 		}
-	public function eliminar($ida){
+		public function eliminarSus($ida,$idu){
+			$u=Login::getUsuario();
+			if(!$u)
+				show_error('Tens que estar identificat',404,'Error , Identificat');
+				$this->load->model('AreesModel');
+				//crear una instancia de Preinscripciones
+				$s = new SubscripcionsModel();
+					
+				$s->id_usuari=$idu;
+				$s->id_area=$ida;
+				if(!$s->borrarSAS())
+					show_error('No es pot eliminar aquesta subscripcio',404,'Error al intentar eliminar');
+					//mostrar la vista de éxito
+					header("Refresh:0; url=".base_url()."/index.php/arees/veurell/$ida");
+		}
+		public function eliminar($ida){
 			$u=Login::getUsuario();
 			if(!$u)
 				show_error('Tens que estar identificat',404,'Error , Identificat');
@@ -141,6 +169,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$alusubs[]=$area[0];
 				}	
 			}
+			
+			$curso=new CursModel();
+			$cursos=$curso->complet();
+				
+			$are=new AreesModel();
+			$are=$are->llistar();
+				
+			$data['are']=$are;
+			$data['cur']=$cursos;
 			$data['alusubs']=$alusubs;
 			$data['curspreins']=$curspreins;
 			$data['alumne']=$alumne;
