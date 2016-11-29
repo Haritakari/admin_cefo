@@ -45,7 +45,7 @@
 					<th>Telefon fixe</th>
 					<th>Telefon mobil</th>
 					<th>email</th>
-					<th>Data hora pre</th>
+					<th>Data hora preinscripcio</th>
 					<th></th>
 				</tr>
 				<?php 
