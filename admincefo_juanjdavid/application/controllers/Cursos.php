@@ -138,14 +138,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			$prei->id_curs=$id;
 			$preins=$prei->getPreinscripcionsC();
 			$usepreins=array();
+			
 			if(count($preins)>=1){
 				foreach ($preins as $p=>$v){
 					$user= new UsuarioModel();
 					$user->id=$v->id_usuari;
 					$user=$user->getUsuario2();
+					$user[0]->data_hora=$v->data_hora;
 					$usepreins[]=$user[0];
 				}
 			}
+			
 			$data['usepreins']=$usepreins;
 			$data['curso']=$curso;
 			$data['usuario']=$usuario;

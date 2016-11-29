@@ -45,6 +45,7 @@
 					<th>Telefon fixe</th>
 					<th>Telefon mobil</th>
 					<th>email</th>
+					<th>Data hora pre</th>
 					<th></th>
 				</tr>
 				<?php 
@@ -69,6 +70,7 @@
 							<td>$item->telefon_fix</td>
 							<td>$item->telefon_mobil</td>
 							<td>$item->email</td>
+							<td>$item->data_hora</td>
 							
 							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/preinscripcions/eliminar2/$item->id/".$curso[0]->id."'><img src='".base_url()."/images/borr.png'/></a></td>
 						</tr></a>";

@@ -145,6 +145,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					$alumne=new UsuarioModel();
 					$alumne->id=$v->id_usuari;
 					$alumne=$alumne->getUsuario2();
+					$alumne[0]->data_hora=$v->data_hora;
 					$alusubs[]=$alumne[0];
 				}
 			}

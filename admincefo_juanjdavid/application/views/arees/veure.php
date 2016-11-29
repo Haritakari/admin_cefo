@@ -7,7 +7,8 @@
 			<table class="most auto">
 				<tr>
 					<th>Nom</th>
-					
+					<th></th>
+					<th></th>
 					
 					
 				</tr>

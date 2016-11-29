@@ -27,10 +27,11 @@
 					<th>Dni</th>
 					<th>1er Cognom</th>
 					<th>Estudis</th>
-					<th>Situacio laboral</th>
+					<th>Situació laboral</th>
 					<th>Telefon fixe</th>
 					<th>Telefon mobil</th>
 					<th>email</th>
+					<th>Data hora Subscripció</th>
 					<th></th>
 				</tr>
 				
@@ -56,6 +57,7 @@
 							<td>$item->telefon_fix</td>
 							<td>$item->telefon_mobil</td>
 							<td>$item->email</td>
+							<td>$item->data_hora</td>
 							
 							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/Subscripcions/eliminarSus/$area->id/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
 						</tr></a>";
