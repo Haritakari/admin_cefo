@@ -55,7 +55,7 @@
 			?>
 			<footer>
 					<br/>
-					<span><a href="cefo@......com ">cefo@.....com</span><span> Aquesta pagina es un projecte academic de  : </span> <span> David Sanchez y Juanjo guardiola</a></span>
+					<span><a href="cefo@......com "></a>cefo@.....com</span><span> Aquesta pagina es un projecte academic de  : </span> <span> David Sanchez y Juanjo guardiola</span>
 			</footer>
 
   </body>
