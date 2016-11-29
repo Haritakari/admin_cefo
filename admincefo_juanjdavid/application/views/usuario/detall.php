@@ -67,7 +67,6 @@ if(!empty($cursos))
 						<th>Data Fi</th>
 						<th></th>
 					</tr>
-			</table>				
 				<?php 
 					foreach ($cursos as $pro=>$item){
 						echo "
@@ -78,11 +77,12 @@ if(!empty($cursos))
 								<td>$item->hores</td>
 								<td>$item->data_inici</td>
 								<td>$item->data_fi</td>
-								<td> <a href='".base_url()."/index.php/preinscripcions/eliminar/".$alumne[0]->id."/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
+								<td><a href='".base_url()."/index.php/preinscripcions/eliminar/".$alumne[0]->id."/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
 							</tr>";
 					}
-					echo "</table><a class='botoncin bo1' onclick='window.history.back()'>Tornar enrere</a>";
+					echo "<a class='botoncin bo1' onclick='window.history.back()'>Tornar enrere</a>";
 				}?>
+			</table>
 		</div>
 <?php 
 if(!empty($alusubs))
@@ -100,7 +100,7 @@ if(!empty($alusubs))
 								<tr class='point' >
 									<td onclick='Mrl2($item->id);'>$item->nom</td>
 									<td><a href='".base_url()."index.php/subscripcions/eliminar/".$alumne[0]->id."/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
-								</tr></a>";
+								</tr>";
 						}?>
 			</table>
 			<a class="botoncin bo1" onclick='window.history.back()'>Tornar enrere</a>
