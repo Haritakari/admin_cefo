@@ -42,13 +42,7 @@
 					<li class="unem"><a href="<?php echo base_url()?>index.php/cursos/llistar">Cursos</a></li>
 					<li class="unem"><a href="<?php echo base_url()?>index.php/usuario/llistar">Alumnes</a></li>
 					<li class="unem"><a href="<?php echo base_url()?>index.php/arees/llistar">Arees formatives</a></li>
-
-					<li class="unem"><a href="">Exportar Cursos a Fitxers XML</a>
-						<ul>
-							<li class="unem"><a href="<?php echo base_url()?>index.php/xml/preinscripcions">Preinscripcions</a></li>
-							<li class="unem"><a href="<?php echo base_url()?>index.php/xml/subscripcions">Subscripcions</a></li>					
-						</ul>
-					</li>
+					
 					
 					<?php }}
 						else

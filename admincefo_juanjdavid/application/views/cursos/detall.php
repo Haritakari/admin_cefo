@@ -26,6 +26,7 @@
 			</tr>
 		</table>
 		<a class="botoncin bo1 bot2" onclick='window.history.back()'>Tornar enrere</a>
+		<a class="botoncin bo5 " href="">Exportar Cursos a Fitxers XML</a>
 		
 		<?php 
 		if(!empty($usepreins)){
