@@ -23,7 +23,9 @@ function myUrl21(id) {
 function Mrl(id) {
     location.href = "http://localhost/admincefo_juanjdavid/index.php/arees/modificar/"+id+"";
 }
-
+function Mrl2(id) {
+    location.href = "http://localhost/admincefo_juanjdavid/index.php/arees/veurell/"+id+"";
+}
 
 
 

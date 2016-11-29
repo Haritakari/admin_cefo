@@ -25,7 +25,8 @@
 				<td><label class="det">Descripció del curs:</label></td><td><?php echo $curso[0]->descripcio;?></td>
 			</tr>
 		</table>
-		<a class="botoncin bo1 bot2" href="<?php echo base_url()?>/index.php/cursos/llistar">Tornar a cursos</a>
+		<a class="botoncin bo1 bot2" onclick='window.history.back()'>Tornar enrere</a>
+		<a class="botoncin bo5 " href="">Exportar Cursos a Fitxers XML</a>
 		
 		<?php 
 		if(!empty($usepreins)){
@@ -53,7 +54,7 @@
 				<?php 
 		foreach ($usepreins as $p=>$item){
 			echo "
-						<tr onclick='myUrl1($item->id);'>
+						<tr class='point' onclick='myUrl1($item->id);'>
 							<td>$item->nom</td>
 							<td>$item->dni</td>
 							<td>$item->cognom1</td>
