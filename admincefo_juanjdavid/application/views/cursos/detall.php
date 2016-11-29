@@ -1,55 +1,48 @@
 
-
-
-
 <div class="cont">
 			<h2 class="det"><?php echo $curso[0]->nom;?></h2><br/><br/><br/>
 		<table >
 			<tr>
-				<td><label class="det">Codi del curs:</label></td><td><?php echo $curso[0]->codi;?></span><br/>
+				<td><label class="det">Codi del curs:</label></td><td><?php echo $curso[0]->codi;?><td/>
 			</tr><tr>
-				<td><label class="det">Hores totals</label></td><td><?php echo $curso[0]->hores;?></span></td>
+				<td><label class="det">Hores totals</label></td><td><?php echo $curso[0]->hores;?></td>
 			</tr><tr>
-				<td><label class="det">Data de inici del curs:</label></td><td>	<?php echo $curso[0]->data_inici;?></span></td>
+				<td><label class="det">Data de inici del curs:</label></td><td>	<?php echo $curso[0]->data_inici;?></td>
 			</tr><tr>
-				<td><label class="det">Data fi del curs:</label></td><td><?php echo $curso[0]->data_fi;?></span></td>
+				<td><label class="det">Data fi del curs:</label></td><td><?php echo $curso[0]->data_fi;?></td>
 			</tr><tr>
-				<td><label class="det">Quin horari tindra:</label></td><td>	<?php echo $curso[0]->horari;?></span></td>
+				<td><label class="det">Quin horari tindra:</label></td><td>	<?php echo $curso[0]->horari;?></td>
 			</tr><tr>
-				<td><label class="det">Mati o tarda?:</label></td><td><?php echo $curso[0]->torn;?></span></td>
+				<td><label class="det">Mati o tarda?:</label></td><td><?php echo $curso[0]->torn;?></td>
 			</tr><tr>
-				<td><label class="det">Quina graduació te:</label></td><td>	<?php echo $curso[0]->tipus;?></span></td>
+				<td><label class="det">Quina graduació te:</label></td><td>	<?php echo $curso[0]->tipus;?></td>
 			</tr><tr>
-				<td><label class="det">Requisits per poder accedir:</label></td><td><?php echo $curso[0]->requisits;?></span></td>
+				<td><label class="det">Requisits per poder accedir:</label></td><td><?php echo $curso[0]->requisits;?></td>
 			</tr><tr>
 				<td><label class="det">Descripció del curs:</label></td><td><?php echo $curso[0]->descripcio;?></td>
 			</tr>
 		</table>
 		<a class="botoncin bo1 bot2" onclick='window.history.back()'>Tornar enrere</a>
+		<a class="botoncin bo3"  onclick='print();'>Impressió</a>
 		<a class="botoncin bo6 " href="">Exportar Cursos a Fitxers XML</a>
 		
 		<?php 
 		if(!empty($usepreins)){
 		?>
-		</div>
-		<div class="content2">
+</div>
+	<div class="content2">
 		<h2>Alumnes preinscrits</h2> 
 		<table class="most">
 				<tr>
 					<th>Nom</th>
 					<th>Dni</th>
 					<th>1er Cognom</th>
-					
-					
 					<th>Estudis</th>
 					<th>Situacio laboral</th>
 					<th>Telefon fixe</th>
 					<th>Telefon mobil</th>
 					<th>email</th>
 					<th></th>
-					
-					
-			
 				</tr>
 				<?php 
 		foreach ($usepreins as $p=>$item){
@@ -58,8 +51,6 @@
 							<td>$item->nom</td>
 							<td>$item->dni</td>
 							<td>$item->cognom1</td>
-							
-							
 							<td>";
 							if ($item->estudis==1) echo "Sense estudis";
 							if ($item->estudis==2) echo "EGB o ESO";
@@ -82,6 +73,4 @@
 		}
 			?>
 		</table>
-		
 	</div>
-</div>

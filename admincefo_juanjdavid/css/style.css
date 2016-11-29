@@ -9,16 +9,20 @@ background-color:#F2F2F2;
 li{
 		list-style-type:none;
 }
+
 input{
 	text-align:center;
 }
+
 .col{
 	background-color:#FBFBEF;
 }
+
 input.peq{
 	display: inline-block;
 	width: 150px;
 }
+
 body{
 	font-family: arial, verdana;
 	width:80%;        
@@ -26,26 +30,33 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 }
+
 a, a:hover, a:focus{
 	color:inherit;
 	text-decoration:none;
 }
+
 .logger{
 	color:#ACFA58;
 }
+
 .logge{
 	color:red;
 }
+
 .flex{
 	flex:1;
 	margin-top:20px
 }
+
 .flex input{
 	margin-bottom:5px;
 }
+
 .flexi{
 	display:flex;
 }
+
 .menu {
 	border-bottom:solid 1px  black;
 	position:fixed;
@@ -54,11 +65,13 @@ a, a:hover, a:focus{
 	width:100%;
 	z-index:20;
 }
+
 .sp{
 	font-variant:small-caps;
 	color:#FA5858;
 	text-shadow:1px 1px 1px black;
 }
+
 footer{
 	border-top:solid 1px  black;
 	position:fixed;
@@ -66,15 +79,18 @@ footer{
 	left:0px;
 	width:100%;
 }
+
 h2{
 	margin:20px;
 	font-variant: small-caps;
 	color:#819FF7;
 	text-shadow: 2px 1px 1px black;
 }
+
 .menu , footer{
 	background-color: #74D1ED;
 }
+
 li.unem{
 		color:white;
 		font-variant:small-caps;
@@ -89,6 +105,7 @@ li.unem{
 	background-color: #b9efdd;
 	box-shadow:5px 5px 5px #848484;
 }
+
 .content2{
 	padding-top:20px;
 	padding-bottom:40px;
@@ -97,6 +114,7 @@ li.unem{
 	background-color: #b9efdd;
 	box-shadow:5px 5px 5px #848484;
 }
+
 .content3{
 	padding-top:20px;
 	padding-bottom:40px;
@@ -105,6 +123,7 @@ li.unem{
 	background-color: #b9efdd;
 	box-shadow:5px 5px 5px #848484;
 }
+
 .content2 table{
 	margin-bottom:50px;	
 }
@@ -114,10 +133,12 @@ table img{
 	padding:10px;
 	margin:-10px;
 }
+
 .carga{
 	width:100%;
 	text-align:center;
 }
+
 #pagin{
 	display:inline-block;
 	margin:20px;
@@ -126,6 +147,7 @@ table img{
 	color:white;
 	text-shadow:1px 1px 1px black;
 }
+
 .izquierda{
 	float: left;
 	margin:15px 30px;
@@ -139,21 +161,23 @@ table img{
    	border:solid 2px #E6C4E0;
    	box-shadow: 2px 2px 5px black;
 }
+
 .derecha{
 	float: right;
 	margin:15px 30px;
 }
+
 .content form label{
 	display: inline-block;
 	min-width: 150px;
 }
+
 .content form input{
 	width:100px;
 }
 
 .nav{
 	height:120px;
-
 }
 
 .nav li{
@@ -162,6 +186,7 @@ table img{
 	font-size:1.1em;
 	margin-left:10px;
 }
+
 .content, .content2, .cont2,.content3{
 	text-align: center;
 }
@@ -174,51 +199,63 @@ table img{
 	visibility: hidden;
 	position:fixed;
 }
+
 .disp{
 	visibility:visible;
 }
+
 .butt{
 	position:absolute;
 	right:-20px;
 	top:-20px;
 	height:40px;
 }
+
 table{
 	margin:10px 40px;
 }
+
 .butt{
 	right:-10px;
 	top:-10px;
 	height:40px;
 }
+
 .auto{
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 50px;
 	margin-bottom: 35px;
 }
+
 .most{
 	margin-left:auto;
 	margin-right:auto;
 }
+
 .most th{
 	color: white;
 	background-color: #5CBA9C;
 	text-align: center;
 	font-weight: bold;
 }
+
  .most td,  .most th{
 	padding: 10px;
 }
+
 .most tr{
 	background-color: #74D1ED;
 }
+
  .most tr:hover{
 	background-color: #819FF7;
 }
+
 .point{
 	cursor:pointer;
 }
+
 .cont{
 	padding-top:20px;
 	padding-bottom:20px;
@@ -228,6 +265,7 @@ table{
 	box-shadow:5px 5px 5px #848484;
 	text-align:left;
 }
+
 .cont2{
 	padding-top:20px;
 	padding-bottom:20px;
@@ -236,6 +274,7 @@ table{
 	background-color: #b9efdd;
 	box-shadow:5px 5px 5px #848484;
 }
+
 .det{
 	font-variant:small-caps;
 	display:inline-block;
@@ -243,13 +282,16 @@ table{
 	
 	margin:5px 50px 5px 100px;
 }
+
 h2.det{
 	text-shadow:1px 1px 1px black;
 }
+
 .alilef{
 	margin-top:30px;
 	text-align:left;
 }
+
 #col{
 	color:#FF8000;
 	padding:10px;
@@ -258,10 +300,12 @@ h2.det{
 	text-shadow:1px 1px 1px black;
 	display:inline-block;
 }
+
 .relative{
 	position: relative;
 	text-align: center;
 }
+
 .relative input:first-of-type{
 	border-radius:0px;
 	border:solid 1px black;
@@ -273,44 +317,54 @@ h2.det{
 	left:17px;
 }
 
-
 .boten{
 	border:solid 1px white;
 	background-color:#c53104;
 	border-radius:3px;
 	padding:2px;
 }
+
 .bo1{
 	background-color: #BABBDD;
 }
+
 .bo1:hover{
 	background-color: #A1A3D5;
 }
+
 .bo2{
 	color:black;
 	background-color: #DF3A01;	
 }
+
 .bo2:hover{
 	background-color: #A1A3D5;
 }
+
 .bo3{
 	background-color: #F4F5AE;
 }
+
 .bo6{
 	background-color:#F5A9F2;
 }
+
 .bo6:hover{
 	background-color:#E3E57B;
 }
+
 .bo3:hover{
 	background-color: #E3E57B;
 }
+
 .bo4:hover{
 	background-color:#74D1ED;
 }
+
 .bo5:hover{
 	background-color:#b9efdd;
 }
+
 .botoncin{
 	padding: 5px;
 	border:solid 1px black;
@@ -319,6 +373,7 @@ h2.det{
 	margin:10px;
 	cursor:pointer;
 }
+
 .bot2{
 	display:inline-block;
 	margin-top:45px;
@@ -329,20 +384,29 @@ h2.det{
 .pagpeque{
 	height:30px;
 }
+
 .rel{
 	position:relative;
 }
+
 .i{
 	position:absolute;
 	bottom:24px;
 	left:42%;
 }
+
 .d{
 	position:absolute;
 	bottom:24px;
 	right:42%;
 }
+
 .pagpeque img{
 	height:30px;
 }
 
+@media print { 
+ /* All your print styles go here */
+ header, footer, .menu, .botoncin, .bot2, .bo3, .bo6 { display: none; }
+  
+}
