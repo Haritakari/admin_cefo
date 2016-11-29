@@ -111,7 +111,7 @@
 						<tr class='point' >
 							<td onclick='Mrl2($item->id);'>$item->nom</td>
 							
-							<td onclick='event.stopPropagation();'><a href='".base_url()."index.php/subscripcions/eliminarSus/".$alumne[0]->id."/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
+							<td><a href='".base_url()."index.php/subscripcions/eliminar/".$alumne[0]->id."/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
 						</tr></a>";
 				}?>
 		</table>

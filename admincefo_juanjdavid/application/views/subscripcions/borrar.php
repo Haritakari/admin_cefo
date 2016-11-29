@@ -1,6 +1,6 @@
 <section class="content">
 			<div>
-			<h2>Eliminar Subsscripcio</h2>
+			<h2>Eliminar Subscripcio</h2>
 			<p>Estas segur que vols eliminar aquesta Subscripcio?</p><br/><br/>
 		
 			<form method="post" autocomplete="off">

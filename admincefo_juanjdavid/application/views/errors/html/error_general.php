@@ -15,10 +15,12 @@ $usuario = empty($_SESSION['user'])? null : unserialize($_SESSION['user']);
   <body>
  <nav class="menu">
 	<div>
-      	<div class="izquierda">
+      	 	<div class="izquierda">
 					<span>CEFO</span><br/>
-					<span>VALLES</span>
+					<span>VALLES</span><br/>
+					<span>ADMINISTRADOR</span>
 		</div>
+       
 	</div>
         <?php 
 		if(!$usuario) Templ::login();
@@ -32,8 +34,11 @@ $usuario = empty($_SESSION['user'])? null : unserialize($_SESSION['user']);
 	
 	      <div class="container">
 		<h1><?php echo $heading; ?></h1>
+		<br><br>
 		<?php echo $message; ?>
-			</div>
+			<br><br><br><br>
+		<a class="botoncin bo1" onclick='window.history.back()'>Tornar enrere</a>
+			<br><br></div>
 		
 	</section>
 

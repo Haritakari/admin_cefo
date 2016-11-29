@@ -11,8 +11,7 @@
 					<th>Area</th>
 					
 					<th>Hores</th>
-					<th>Data Inici</th>
-					<th>Data Fi</th>
+					
 					<th></th>
 					<th></th>
 					
@@ -33,8 +32,7 @@
 							<td>$item->area</td>
 							
 							<td>$item->hores</td>
-							<td>$item->data_inici</td>
-							<td>$item->data_fi</td>
+							
 							<td onclick='event.stopPropagation(),myUrl2($item->id);'><img src='".base_url()."/images/mod.png'/></td>
 							<td onclick='event.stopPropagation(),myUrl3($item->id);'><img src='".base_url()."/images/borr.png'/></td>
 						</tr></a>";

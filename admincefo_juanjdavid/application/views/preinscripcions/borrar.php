@@ -6,7 +6,7 @@
 			<form method="post" autocomplete="off">
 				
 			
-				<label> Estas a punt de eliminar una subscripcio</label><br/><br/>
+				<label> Estas a punt de eliminar una preinscripcio</label><br/><br/>
 				<a class="botoncin bo1" onclick='window.history.back()'>Tornar enrere</a>
 				<input class="botoncin bo3" type="submit" name="delete" value="Confirmar"/><br/>
 			</form>
