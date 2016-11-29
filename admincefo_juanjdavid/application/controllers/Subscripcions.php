@@ -221,11 +221,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						$alusubs[]=$alumne[0];
 					}
 				}
-				$alusubs= array_unshift($alusubs,$area);
+				$alusubs[]=$area;
 				$data['alusubs']=$alusubs;
 				
 				$this->load->view('xml/listaxml', $data);
-			
 		}
 	}
 ?>

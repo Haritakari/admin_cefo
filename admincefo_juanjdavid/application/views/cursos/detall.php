@@ -24,7 +24,10 @@
 		</table>
 		<a class="botoncin bo1 bot2" onclick='window.history.back()'>Tornar enrere</a>
 		<a class="botoncin bo3"  onclick='print();'>Impressió</a>
-		<a class="botoncin bo6 " href="">Exportar Cursos a Fitxers XML</a>
+		<?php if(!empty($usepreins))
+			{?>
+			<a href='<?php echo base_url()?>index.php/preinscripcions/xml/<?php echo $curso[0]->id?>' class="botoncin bo6"> Descargar en XML</a>
+		<?php }?>
 		
 		<?php 
 		if(!empty($usepreins)){
