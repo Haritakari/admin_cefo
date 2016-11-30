@@ -169,7 +169,7 @@ table img{
 	font-size:1.1em;
 	margin-left:10px;
 }
-.content, .content2, .cont2,.content3{
+.content, .content2, .cont2,.content3,.cont{
 	text-align: center;
 	background-color:#E5DCC3;
 }
@@ -241,7 +241,6 @@ table{
 	padding-bottom:20px;
 	margin-top:150px;
 	margin-bottom:100px;
-	background-color: #b9efdd;
 	box-shadow:5px 5px 5px #848484;
 	text-align:left;
 }
@@ -250,7 +249,6 @@ table{
 	padding-bottom:20px;
 	margin-top:350px;
 	margin-bottom:100px;
-	background-color: #b9efdd;
 	box-shadow:5px 5px 5px #848484;
 }
 .det{
