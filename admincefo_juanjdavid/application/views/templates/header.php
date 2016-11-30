@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  <nav class="menu">
 	<div>
       	<div class="izquierda">
-					<span>CEFO</span><br/>
+					<span>CEFO</span>
 					<span>VALLES</span><br/>
 					<span>ADMINISTRADOR</span>
 		</div>
@@ -25,5 +25,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		?>
        
       </div>
-    </nav>
+   </nav>
     

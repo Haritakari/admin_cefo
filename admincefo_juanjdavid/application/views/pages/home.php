@@ -1,18 +1,25 @@
 <div class="content">
 
-   
-    <div class="jumbotron">
+
       <div class="container">
-        <h1>Aquesta es la pagina de benvinguda</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <h1>Benvingut al nostre centre</h1><br><br><br><br><br>
+        <p >Podras veure tots els nostres cursos i preinscriuret al que mes t'agradi.
+        <p >Si tinteresa algun area formativa en concret ,pero no tenim
+        cap curs en aquest moment d'aquesta area,</p><p> pots subcriuret a la arera en questio i t'avisarem cuan ofertem nous cursos relacionats</p>
+		<br/><br/><br/>
       </div>
+      
     </div>
 
-    <div class="container">
+    <div class="content2">
    
-      Aqui va el text
-      </div>
+       <h3> Aviso legal:</h3><br><br>
 
-      <hr>
+<p class="bien">Este portal, , con NIF , domicilio en la , y teléfono , está constituido por los sitios web asociados a los dominios .
+ Propiedad intelectual e industrial
+
+El diseño del portal y sus códigos fuente, así como los logos, marcas y demás signos distintivos que aparecen en el mismo pertenecen a la y están protegidos por los correspondientes derechos de propiedad intelectual e industrial. 
+  </p>   </div>
+
+     
 </div>

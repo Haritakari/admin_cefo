@@ -49,6 +49,7 @@
 							echo "<li class='sp'>Fes login per accedir a la aplicacio</li>";
 					?>
 				</ul>
+			
 		<?php 	
 		}
 		//PONE EL PIE DE PAGINA
@@ -56,7 +57,8 @@
 			?>
 			<footer>
 					<br/>
-					<span><a href="cefo@......com "></a>cefo@.....com</span><span> Aquesta pagina es un projecte academic de  : </span> <span> David Sánchez y Juanjo Guardiola</span>
+					</a><span class="pnoms"> Aquesta pagina es un projecte academic de  : </span> <span class="noms"> David Sanchez y Juanjo Guardiola</span>
+         								<br/>
 			</footer>
 
   </body>
