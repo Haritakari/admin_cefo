@@ -31,10 +31,10 @@ a, a:hover, a:focus{
 	text-decoration:none;
 }
 .logger{
-	color:#ACFA58;
+	color:#61380B;
 }
 .logge{
-	color:red;
+	color:#2E64FE;
 }
 .flex{
 	flex:1;
@@ -82,7 +82,7 @@ li.unem{
 }
 
 .content{
-	margin-top:200px;
+	margin-top:140px;
 	margin-bottom:100px;
 	padding-top:20px;
 	padding-bottom:20px;
@@ -185,6 +185,22 @@ table img{
 }
 table{
 	margin:10px 40px;
+}
+.reo{
+	font-size:0.8em;
+}
+.reo td{
+	width:20px;
+}
+.reo1{
+	font-size:1em;
+}
+.reo1 td{
+	width:25px;
+}
+
+.reo2 td{
+	width:100px;
 }
 .butt{
 	right:-10px;
@@ -326,7 +342,10 @@ h2.det{
 	margin-left:40%;
 }
 
-.pagpeque{
+.peque{
+	height:30px;
+}
+.peque img{
 	height:30px;
 }
 .rel{
@@ -366,4 +385,14 @@ h2.det{
  body{
  	width:100%;
  }
+ h2{
+ text-shadow:0px 0px 0px white;
+ }
+ .reo,.reo1,.reo2{
+	font-size:1em;
+}
+.reo td,.reo td1,.reo td2{
+	width:100%;
+}
+
 }

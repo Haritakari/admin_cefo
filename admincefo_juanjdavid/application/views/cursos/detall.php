@@ -35,7 +35,7 @@
 </div>
 	<div class="content2">
 		<h2>Alumnes preinscrits</h2> 
-		<table class="most">
+		<table class="most reo">
 				<tr>
 					<th>Nom</th>
 					<th>Dni</th>

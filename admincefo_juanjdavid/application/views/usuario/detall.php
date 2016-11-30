@@ -57,7 +57,7 @@ if(!empty($cursos))
 	if (count($cursos)>=1){?>
 		<div class="content2">
 			<h2>Cursos als que s'ha preinscrit</h2>
-			<table class="most">
+			<table class="most reo2">
 					<tr>
 						<th>Codi</th>
 						<th>Nom</th>
@@ -80,9 +80,13 @@ if(!empty($cursos))
 								<td><a href='".base_url()."/index.php/preinscripcions/eliminar/".$alumne[0]->id."/$item->id'><img src='".base_url()."/images/borr.png'/></a></td>
 							</tr>";
 					}
-					echo "<a class='botoncin bo1' onclick='window.history.back()'>Tornar enrere</a>";
+					
 				}?>
 			</table>
+			<?php if(!empty($cursos))
+					if (count($cursos)>=1){?>
+						<a class='botoncin bo1' onclick='window.history.back()'>Tornar enrere</a>
+			<?php }?>
 		</div>
 <?php 
 if(!empty($alusubs))
