@@ -1,5 +1,6 @@
 <div class="cont">
-	<h2>Detalls alumnes</h2>
+	<h2 class="det1">Detalls alumnes</h2>
+	<br>
 	<label class="det">Nom complert:</label><span>	<?php echo $alumne[0]->nom; echo" ". $alumne[0]->cognom1; echo" ". $alumne[0]->cognom2 ;?></span><br/>
 	<label class="det">DNI:</label><span>	<?php echo $alumne[0]->dni;?></span><br/>
 	<label class="det">Estudis</label>	<span>
@@ -23,7 +24,7 @@
 	<label class="det">Email:</label>	<span><?php echo $alumne[0]->email;?></span><br/>
 	<a class="botoncin bo1 bot2" onclick='window.history.back()'>Tornar enrere</a><br/>
 	
-	<form  method="post" action="<?php echo base_url()?>index.php/preinscripcions/admi">
+	<form class="marg" method="post" action="<?php echo base_url()?>index.php/preinscripcions/admi">
 		<select class="botoncin bo3" name="pre">
 			<option value="">Selecciona curs</option>
 			<?php 
@@ -37,7 +38,7 @@
 			<input type="hidden" value="<?php echo $alumne[0]->id?>"  name="idp">
 			<input type="submit" class="botoncin bo3" value="Preinscriure">
 	</form>
-	<form  method="post" action="<?php echo base_url()?>index.php/subscripcions/admi">
+	<form class="marg" method="post" action="<?php echo base_url()?>index.php/subscripcions/admi">
 		<select class="botoncin bo4" name="subs">
 			<option value="">Selecciona Area </option>
 			<?php 

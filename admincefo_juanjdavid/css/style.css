@@ -129,9 +129,10 @@ table img{
 	display:inline-block;
 	margin:20px;
 	padding:10px;
-	
-	color:white;
-	text-shadow:1px 1px 1px black;
+	color:#927650;
+	font-weight: bold;
+	font-variant: small-caps;
+	text-shadow: 1px 1px 1px black;
 }
 .izquierda{
 	float: left;
@@ -254,12 +255,24 @@ table{
 .det{
 	font-variant:small-caps;
 	display:inline-block;
-	width:400px;
-	
+	width:200px;
 	margin:5px 50px 5px 100px;
+}
+.det1{
+	font-variant:small-caps;
+	margin:5px 50px 5px 100px;
+}
+.bien{
+	margin-left:50px;
+	margin-right:50px;
+	margin-bottom:50px;
 }
 h2.det{
 	text-shadow:1px 1px 1px black;
+}
+.marg{
+	margin-left: 90px;
+	display: inline-block;
 }
 .alilef{
 	margin-top:30px;
@@ -353,12 +366,12 @@ h2.det{
 .i{
 	position:absolute;
 	bottom:24px;
-	left:42%;
+	left:40%;
 }
 .d{
 	position:absolute;
 	bottom:24px;
-	right:42%;
+	right:40%;
 }
 .pagpeque img{
 	height:30px;

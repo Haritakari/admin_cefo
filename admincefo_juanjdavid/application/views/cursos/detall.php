@@ -1,6 +1,6 @@
 
 <div class="cont">
-			<h2 class="det"><?php echo $curso[0]->nom;?></h2><br/><br/><br/>
+			<h2 class="det1"><?php echo $curso[0]->nom;?></h2><br/><br/><br/>
 		<table >
 			<tr>
 				<td><label class="det">Codi del curs:</label></td><td><?php echo $curso[0]->codi;?><td/>
